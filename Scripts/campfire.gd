@@ -37,6 +37,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	fuel_level = clamp(fuel_level - fuel_drain_speed * delta, 0, maximum_fuel_level)
+	
+	fuel_level = max(fuel_level - fuel_drain_speed * delta, 0)
 	fuel_percent = fuel_level / maximum_fuel_level
-	print(fuel_level)
+	#print(fuel_level)

@@ -97,7 +97,6 @@ func get_looked_at_object(max_distance := 100.0) -> Node3D:
 
 	# Walk up the tree until we find an Item
 	while collider and not ("Interactable" in collider.get_groups()):
-		print(collider)
 		collider = collider.get_parent()
 
 	if not collider:
@@ -148,9 +147,12 @@ func _process(delta: float) -> void:
 		if not is_holding_item:
 			var node := get_looked_at_object()
 			if node:
-				print("Found pickup: ", node.name)
-				var pickup := node as Pickupable
-				pickup.pick_up()
+				if "Item" in node.get_groups():
+					print("Found pickup: ", node.name)
+					var pickup := node as Pickupable
+					pickup.pick_up()
+				else:
+					print("That is not a valid item.")
 			else:
 				print("No pickup detected")
 		else:

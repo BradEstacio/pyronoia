@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd7amnsc8afo7"]
+
+[ext_resource type="AudioStream" uid="uid://p4270fvd0k5u" path="res://Assets/SFX/319797__zmobie__zippo-lighter-1-closing.wav" id="1_gfy5a"]
+
+[node name="CloseButtonSFX" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_gfy5a")

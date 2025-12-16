@@ -23,6 +23,7 @@ var fuel_percent: float
 
 func add_fuel(fuel_added := 0.0) -> void:
 	print("Added fuel to fire!")
+	$AddKindling.play()
 	fuel_level = min(fuel_level + fuel_added, maximum_fuel_level)
 	fuel_percent = fuel_level / maximum_fuel_level
 
@@ -40,3 +41,6 @@ func _process(delta: float) -> void:
 	fuel_level = clamp(fuel_level - fuel_drain_speed * delta, 0, maximum_fuel_level)
 	fuel_percent = fuel_level / maximum_fuel_level
 	print(fuel_level)
+	if fuel_level <= 0:
+		get_tree().change_scene_to_file("res://Scenes/Screens/lose_screen.tscn")
+		pass

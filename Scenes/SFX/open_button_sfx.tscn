@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf05d36j6882o"]
+
+[ext_resource type="AudioStream" uid="uid://qb48crrj374x" path="res://Assets/SFX/319798__zmobie__zippo-lighter-1-lighting.wav" id="1_qcd5a"]
+
+[node name="OpenButtonSFX" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_qcd5a")

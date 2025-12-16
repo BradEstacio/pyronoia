@@ -8,6 +8,7 @@ const JUMP_VELOCITY = 4.5
 var mouse_sensitivity := 0.1
 var rotation_x := 0.0
 var rotation_y := 0.0
+var temp_count = 0
 
 @export var camera: Camera3D
 @export var is_holding_item: bool = false
@@ -116,10 +117,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -130,6 +127,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	if velocity.length() != 0:
+		if !$WalkAudio.playing && $Timer.is_stopped():
+			$WalkAudio.play()
+			$WalkAudio.pitch_scale = randf_range(0.3, 0.4)
+			$WalkAudio.volume_db = randf_range(-17.5, -15.0)
+			$Timer.start()
 
 	move_and_slide()
 
@@ -143,7 +147,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation_degrees.y = rotation_x # some methods without the class automatically assume the script's parent
 		camera.rotation_degrees.x = rotation_y
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_interact"):
 		if not is_holding_item:
 			var node := get_looked_at_object()
@@ -164,6 +168,9 @@ func _process(delta: float) -> void:
 					held_item.queue_free()
 					is_holding_item = false
 					held_item = null
+					temp_count += 1
+					if temp_count >= 3:
+						get_tree().change_scene_to_file("res://Scenes/Screens/win_screen.tscn")
 				else:
 					var drop_pos := get_look_position()
 					held_item.drop_item(drop_pos)

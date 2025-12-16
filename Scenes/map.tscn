@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs1udunx5w15l"]
+[gd_scene load_steps=9 format=3 uid="uid://bs1udunx5w15l"]
 
 [ext_resource type="PackedScene" uid="uid://c6we6ca5i1dps" path="res://Scenes/plane.tscn" id="1_wijl4"]
-[ext_resource type="PackedScene" uid="uid://dd3nwm25hka8f" path="res://Scenes/player.tscn" id="2_e0an3"]
-[ext_resource type="PackedScene" uid="uid://c2q27maoaq61d" path="res://Scenes/campfire.tscn" id="4_myvm1"]
-[ext_resource type="PackedScene" uid="uid://gra3ji62q65o" path="res://Scenes/wood.tscn" id="4_q0mm3"]
+[ext_resource type="PackedScene" uid="uid://dd3nwm25hka8f" path="res://Scenes/Entities/player.tscn" id="2_e0an3"]
+[ext_resource type="PackedScene" uid="uid://c2q27maoaq61d" path="res://Scenes/Entities/campfire.tscn" id="4_myvm1"]
+[ext_resource type="PackedScene" uid="uid://gra3ji62q65o" path="res://Scenes/Entities/wood.tscn" id="4_q0mm3"]
+[ext_resource type="AudioStream" uid="uid://dsth7fw3afvul" path="res://Assets/SFX/753418__zhr__silent-forest.wav" id="5_q0mm3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wijl4"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -32,14 +33,23 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -0.5713408, -0.00701165
 [node name="Player" parent="." instance=ExtResource("2_e0an3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
-[node name="Sprite4" parent="." instance=ExtResource("4_myvm1")]
+[node name="Campfire" parent="." instance=ExtResource("4_myvm1")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -4)
 
-[node name="Sprite" parent="." instance=ExtResource("4_q0mm3")]
+[node name="Wood" parent="." instance=ExtResource("4_q0mm3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
-[node name="Sprite2" parent="." instance=ExtResource("4_q0mm3")]
+[node name="Wood2" parent="." instance=ExtResource("4_q0mm3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
 
-[node name="Sprite3" parent="." instance=ExtResource("4_q0mm3")]
+[node name="Wood3" parent="." instance=ExtResource("4_q0mm3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q0mm3")
+autoplay = true
+
+[editable path="Campfire"]
+[editable path="Wood"]
+[editable path="Wood2"]
+[editable path="Wood3"]

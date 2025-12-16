@@ -1,3 +1,4 @@
+class_name PlayerController
 extends CharacterBody3D
 
 
@@ -9,6 +10,102 @@ var rotation_x := 0.0
 var rotation_y := 0.0
 
 @export var camera: Camera3D
+@export var is_holding_item: bool = false
+@export var held_item: Node3D
+
+func get_group_rids(group_name: String) -> Array[RID]:
+	var rids: Array[RID] = []
+
+	for node in get_tree().get_nodes_in_group(group_name):
+		if node is CollisionObject3D:
+			rids.append(node.get_rid())
+
+	return rids
+
+func get_look_position(max_distance := 100.0) -> Vector3:
+	var viewport := get_viewport()
+
+	# Screen center
+	var screen_center := viewport.get_visible_rect().size * 0.5
+
+	# Ray
+	var origin := camera.project_ray_origin(screen_center)
+	var direction := camera.project_ray_normal(screen_center)
+	var to := origin + direction * max_distance
+
+	# Raycast
+	var exclude_items := get_group_rids("Item Collider")
+	var space := get_world_3d().direct_space_state
+	var query := PhysicsRayQueryParameters3D.create(origin, to, 0xFFFFFFFF, exclude_items)
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+
+	var result := space.intersect_ray(query)
+	if result:
+		return result.position
+	
+	return Vector3.ZERO
+
+func get_looked_at_node(max_distance := 100.0) -> Node3D:
+	var viewport := get_viewport()
+
+	# Screen center
+	var screen_center := viewport.get_visible_rect().size * 0.5
+
+	# Ray
+	var origin := camera.project_ray_origin(screen_center)
+	var direction := camera.project_ray_normal(screen_center)
+	var to := origin + direction * max_distance
+
+	# Raycast
+	var space := get_world_3d().direct_space_state
+	var query := PhysicsRayQueryParameters3D.create(origin, to)
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+
+	var result := space.intersect_ray(query)
+	if result:
+		return result["collider"]  # This is the node you're looking at
+
+	return null
+
+func get_looked_at_item(max_distance := 100.0) -> Node3D:
+	var viewport := get_viewport()
+
+	# Screen center
+	var screen_center := viewport.get_visible_rect().size * 0.5
+
+	# Ray
+	var origin := camera.project_ray_origin(screen_center)
+	var direction := camera.project_ray_normal(screen_center)
+	var to := origin + direction * max_distance
+
+	# Raycast
+	var space := get_world_3d().direct_space_state
+	var query := PhysicsRayQueryParameters3D.create(origin, to)
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+
+	var result := space.intersect_ray(query)
+	if not result:
+		return null
+		
+	if not (result["collider"] is Node):
+		return null
+
+	var collider: Node = result["collider"]
+
+	# Walk up the tree until we find an Item
+	while collider and not (collider is Pickupable):
+		collider = collider.get_parent()
+
+	if not collider:
+		return null
+
+	if collider is Pickupable:
+		return collider
+	else:
+		return null
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -44,3 +141,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		rotation_degrees.y = rotation_x # some methods without the class automatically assume the script's parent
 		camera.rotation_degrees.x = rotation_y
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_interact"):
+		if not is_holding_item:
+			var node := get_looked_at_item()
+			if node:
+				print("Found pickup: ", node.name)
+				var pickup := node as Pickupable
+				pickup.pick_up()
+			else:
+				print("No pickup detected")
+		else:
+			#var item := get_looked_at_node()
+			var drop_pos := get_look_position()
+			held_item.drop_item(drop_pos)
+			 

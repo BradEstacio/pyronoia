@@ -6,12 +6,12 @@
 
 [node name="Plane" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="PlaneMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_r8t2q")
-skeleton = NodePath("../StaticBody3D/CollisionShape3D")
+skeleton = NodePath("../PlaneStaticBody/PlaneCollider")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="PlaneStaticBody" type="StaticBody3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 0.025, 0, 0, 0, 2, 0, -0.012, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="PlaneCollider" type="CollisionShape3D" parent="PlaneStaticBody"]
 shape = SubResource("BoxShape3D_s46f0")

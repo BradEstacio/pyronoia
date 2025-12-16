@@ -25,7 +25,10 @@ window/stretch/mode="canvas_items"
 
 Item=""
 Wood=""
-"Item Collider"=""
+Campfire=""
+Burnable=""
+"Sprite Collider"=""
+Interactable=""
 
 [input]
 

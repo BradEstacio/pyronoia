@@ -1,4 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6we6ca5i1dps"]
+[gd_scene load_steps=4 format=3 uid="uid://c6we6ca5i1dps"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fnun3"]
+albedo_color = Color(0.019607844, 0.23529412, 0, 1)
+metallic_specular = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_r8t2q"]
 
@@ -7,6 +11,7 @@
 [node name="Plane" type="Node3D"]
 
 [node name="PlaneMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_fnun3")
 mesh = SubResource("PlaneMesh_r8t2q")
 skeleton = NodePath("../PlaneStaticBody/PlaneCollider")
 

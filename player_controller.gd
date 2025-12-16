@@ -34,7 +34,7 @@ func get_look_position(max_distance := 100.0) -> Vector3:
 	var to := origin + direction * max_distance
 
 	# Raycast
-	var exclude_items := get_group_rids("Item Collider")
+	var exclude_items := get_group_rids("Sprite Collider")
 	var space := get_world_3d().direct_space_state
 	var query := PhysicsRayQueryParameters3D.create(origin, to, 0xFFFFFFFF, exclude_items)
 	query.collide_with_areas = true
@@ -69,7 +69,7 @@ func get_looked_at_node(max_distance := 100.0) -> Node3D:
 
 	return null
 
-func get_looked_at_item(max_distance := 100.0) -> Node3D:
+func get_looked_at_object(max_distance := 100.0) -> Node3D:
 	var viewport := get_viewport()
 
 	# Screen center
@@ -96,13 +96,14 @@ func get_looked_at_item(max_distance := 100.0) -> Node3D:
 	var collider: Node = result["collider"]
 
 	# Walk up the tree until we find an Item
-	while collider and not (collider is Pickupable):
+	while collider and not ("Interactable" in collider.get_groups()):
+		print(collider)
 		collider = collider.get_parent()
 
 	if not collider:
 		return null
 
-	if collider is Pickupable:
+	if "Interactable" in collider.get_groups():
 		return collider
 	else:
 		return null
@@ -145,7 +146,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_interact"):
 		if not is_holding_item:
-			var node := get_looked_at_item()
+			var node := get_looked_at_object()
 			if node:
 				print("Found pickup: ", node.name)
 				var pickup := node as Pickupable
@@ -153,7 +154,20 @@ func _process(delta: float) -> void:
 			else:
 				print("No pickup detected")
 		else:
-			#var item := get_looked_at_node()
-			var drop_pos := get_look_position()
-			held_item.drop_item(drop_pos)
+			var node := get_looked_at_object()
+			if node:
+				#print("Campfire" in node.get_groups(), " ", "Burnable" in held_item.get_groups())
+				if "Campfire" in node.get_groups() and "Burnable" in held_item.get_groups():
+					var campfire := node as Campfire
+					var fuel_item := held_item as Pickupable
+					campfire.add_fuel(fuel_item.fuel_amount)
+					held_item.queue_free()
+					is_holding_item = false
+					held_item = null
+				else:
+					var drop_pos := get_look_position()
+					held_item.drop_item(drop_pos)
+			else:
+				var drop_pos := get_look_position()
+				held_item.drop_item(drop_pos)
 			 

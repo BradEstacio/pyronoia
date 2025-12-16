@@ -5,7 +5,8 @@ extends Node3D
 @export var pickup_noise: AudioStream
 @export var default_size: float
 @export var holding_size: float
-@export var fuel_amount: float
+@export var fuel_amount: float = 0.0
+@export var pickup_error: String = "You do not need this item now."
 
 var is_held: bool = false
 var sprite: SpriteBase3D
@@ -34,7 +35,6 @@ func drop_item(pos: Vector3) -> void:
 		sprite.pixel_size = default_size
 		sprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 		global_position = pos
-		print(pos)
 		reparent(map)
 
 # Called when the node enters the scene tree for the first time.

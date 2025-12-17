@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Pyronoia"
-run/main_scene="uid://bs1udunx5w15l"
+run/main_scene="uid://dcb7vxqoukneu"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+OpenButtonSfx="*res://Scenes/SFX/open_button_sfx.tscn"
+CloseButtonSfx="*res://Scenes/SFX/close_button_sfx.tscn"
 
 [display]
 

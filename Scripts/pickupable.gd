@@ -18,6 +18,7 @@ var pickup_point: Node3D
 func pick_up() -> void:
 	if active and not is_held and not pc.is_holding_item:
 		print("Picked up an item!")
+		$PickUp.play()
 		is_held = true
 		pc.is_holding_item = true
 		pc.held_item = self
@@ -35,6 +36,7 @@ func drop_item(pos: Vector3) -> void:
 		sprite.pixel_size = default_size
 		sprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 		global_position = pos
+		$DropOffWood.play()
 		reparent(map)
 
 # Called when the node enters the scene tree for the first time.
@@ -44,7 +46,3 @@ func _ready() -> void:
 	player = map.get_node("Player")
 	pc = player as PlayerController
 	pickup_point = player.get_node("PlayerCamera/ItemCarryPoint")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

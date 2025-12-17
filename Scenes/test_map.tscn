@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://csvc6q84p6tj5"]
+
+[ext_resource type="PackedScene" uid="uid://b271on8yeeeyg" path="res://Assets/Map3.glb" id="1_phepx"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Map3" parent="." instance=ExtResource("1_phepx")]

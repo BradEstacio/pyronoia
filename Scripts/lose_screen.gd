@@ -12,4 +12,4 @@ func _on_restart_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	CloseButtonSfx.play()
 	await CloseButtonSfx.finished
-	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Screens/title_screen.tscn")

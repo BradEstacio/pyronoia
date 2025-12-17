@@ -1,13 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs1udunx5w15l"]
+[gd_scene load_steps=13 format=3 uid="uid://bs1udunx5w15l"]
 
 [ext_resource type="PackedScene" uid="uid://c6we6ca5i1dps" path="res://Scenes/plane.tscn" id="1_wijl4"]
 [ext_resource type="PackedScene" uid="uid://dd3nwm25hka8f" path="res://Scenes/Entities/player.tscn" id="2_e0an3"]
 [ext_resource type="PackedScene" uid="uid://c2q27maoaq61d" path="res://Scenes/Entities/campfire.tscn" id="4_myvm1"]
 [ext_resource type="PackedScene" uid="uid://gra3ji62q65o" path="res://Scenes/Entities/wood.tscn" id="4_q0mm3"]
 [ext_resource type="AudioStream" uid="uid://dsth7fw3afvul" path="res://Assets/SFX/753418__zhr__silent-forest.wav" id="5_q0mm3"]
+[ext_resource type="PackedScene" uid="uid://w5302lbqh8fb" path="res://Scenes/HUD/vignette.tscn" id="6_np2xp"]
+[ext_resource type="PackedScene" uid="uid://bxe4fmvovjpqt" path="res://Scenes/HUD/task_list.tscn" id="6_w7jjh"]
+[ext_resource type="PackedScene" uid="uid://bi7mfqi7cma2g" path="res://Scenes/HUD/fuel_bar.tscn" id="8_6q3n4"]
+[ext_resource type="PackedScene" uid="uid://6vkuif0e1714" path="res://Scenes/HUD/crosshair.tscn" id="9_4c2oa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wijl4"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_top_color = Color(0.08235294, 0.12941177, 0.16470589, 1)
+sky_horizon_color = Color(0.015686275, 0.05490196, 0.08627451, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
 [sub_resource type="Sky" id="Sky_e0an3"]
@@ -16,7 +21,18 @@ sky_material = SubResource("ProceduralSkyMaterial_wijl4")
 [sub_resource type="Environment" id="Environment_p5pve"]
 background_mode = 2
 sky = SubResource("Sky_e0an3")
-tonemap_mode = 2
+tonemap_mode = 3
+tonemap_exposure = 0.95
+tonemap_white = 7.5
+fog_enabled = true
+fog_light_color = Color(0.44705883, 0.48235294, 0.50980395, 1)
+fog_light_energy = 0.25
+fog_sky_affect = 0.1
+volumetric_fog_albedo = Color(0.44705883, 0.48235294, 0.50980395, 1)
+volumetric_fog_emission = Color(0.23137255, 0.26666668, 0.29411766, 1)
+volumetric_fog_emission_energy = 0.1
+adjustment_enabled = true
+adjustment_brightness = 1.3
 
 [node name="Map" type="Node3D"]
 
@@ -25,6 +41,7 @@ environment = SubResource("Environment_p5pve")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
 shadow_enabled = true
 
 [node name="Plane" parent="." instance=ExtResource("1_wijl4")]
@@ -32,6 +49,9 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -0.5713408, -0.00701165
 
 [node name="Player" parent="." instance=ExtResource("2_e0an3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="SpotLight3D" parent="Player/PlayerCamera/Flashlight" index="0"]
+spot_range = 12.5
 
 [node name="Campfire" parent="." instance=ExtResource("4_myvm1")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -4)
@@ -49,7 +69,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
 stream = ExtResource("5_q0mm3")
 autoplay = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="TaskList" parent="CanvasLayer" instance=ExtResource("6_w7jjh")]
+
+[node name="Vignette" parent="CanvasLayer" instance=ExtResource("6_np2xp")]
+unique_name_in_owner = true
+
+[node name="FuelBar" parent="CanvasLayer" instance=ExtResource("8_6q3n4")]
+unique_name_in_owner = true
+
+[node name="Crosshair" parent="CanvasLayer" instance=ExtResource("9_4c2oa")]
+
+[editable path="Player"]
 [editable path="Campfire"]
 [editable path="Wood"]
 [editable path="Wood2"]
 [editable path="Wood3"]
+[editable path="CanvasLayer/Vignette"]
+[editable path="CanvasLayer/FuelBar"]

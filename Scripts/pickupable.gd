@@ -36,7 +36,7 @@ func drop_item(pos: Vector3) -> void:
 		sprite.pixel_size = default_size
 		sprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 		global_position = pos
-		$DropOff.play()
+		$DropOffWood.play()
 		reparent(map)
 
 # Called when the node enters the scene tree for the first time.

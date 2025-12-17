@@ -14,6 +14,8 @@ var rotation_y := 0.0
 @export var held_item: Node3D
 @export var pickup_distance: float
 
+var looked_at_object: Node3D
+
 func get_group_rids(group_name: String) -> Array[RID]:
 	var rids: Array[RID] = []
 
@@ -174,4 +176,13 @@ func _process(_delta: float) -> void:
 			else:
 				var drop_pos := get_look_position()
 				held_item.drop_item(drop_pos)
-			 
+	
+	# Handle hover/outline shader
+	var last_looked_at_object = looked_at_object
+	looked_at_object = get_looked_at_object()
+	#print(looked_at_object)
+	#print(looked_at_object == null)
+	if last_looked_at_object and looked_at_object != last_looked_at_object:
+		var col_sprite3d_child = last_looked_at_object.get_node("Sprite3D")
+		if col_sprite3d_child:
+			col_sprite3d_child.material_override.set_shader_parameter("onoff", 0.0)

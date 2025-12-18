@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6jxpi72xljks"]
+
+[ext_resource type="Texture2D" uid="uid://o2vwongrcsfd" path="res://Sprites/Temporary/fire TMP.png" id="1_jxwna"]
+
+[node name="Fire" type="Node3D"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.00921462, 0, 0, 0, 0.00921462, 0, 0, 0, 0.00921462, 0, 0, 0)
+cast_shadow = 0
+offset = Vector2(0, 512)
+pixel_size = 0.1
+billboard = 2
+alpha_antialiasing_mode = 2
+alpha_antialiasing_edge = 1.0
+texture_filter = 1
+texture = ExtResource("1_jxwna")

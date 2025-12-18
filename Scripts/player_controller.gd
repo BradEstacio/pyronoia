@@ -9,11 +9,14 @@ var mouse_sensitivity := 0.1
 var rotation_x := 0.0
 var rotation_y := 0.0
 
-@export var camera: Camera3D
-@export var is_holding_item: bool = false
-@export var held_item: Node3D
-@export var pickup_distance: float
 
+@export var pickup_distance: float
+@export var fire_scene: PackedScene
+
+var camera: Camera3D
+var campfire: Node3D
+var is_holding_item: bool = false
+var held_item: Node3D
 var looked_at_object: Node3D
 
 func get_group_rids(group_name: String) -> Array[RID]:
@@ -38,6 +41,9 @@ func get_look_position(max_distance := 100.0) -> Vector3:
 
 	# Raycast
 	var exclude_items := get_group_rids("Sprite Collider")
+	if held_item:
+		var item := held_item.get_node("SpriteStaticBody")
+		exclude_items.append(item.get_rid())
 	var space := get_world_3d().direct_space_state
 	var query := PhysicsRayQueryParameters3D.create(origin, to, 0xFFFFFFFF, exclude_items)
 	query.collide_with_areas = true
@@ -85,7 +91,13 @@ func get_looked_at_object(max_distance := 100.0) -> Node3D:
 
 	# Raycast
 	var space := get_world_3d().direct_space_state
-	var query := PhysicsRayQueryParameters3D.create(origin, to)
+	var query
+	if held_item:
+		var item: StaticBody3D =  held_item.get_node("SpriteStaticBody")
+		var a = [item.get_rid()]
+		query = PhysicsRayQueryParameters3D.create(origin, to, 0xFFFFFFFF, a)
+	else:
+		query = PhysicsRayQueryParameters3D.create(origin, to)
 	query.collide_with_areas = true
 	query.collide_with_bodies = true
 
@@ -106,8 +118,8 @@ func get_looked_at_object(max_distance := 100.0) -> Node3D:
 		return null
 
 	if "Interactable" in collider.get_groups():
-		var col_sprite3d_child = collider.get_node("Sprite3D")
-		if col_sprite3d_child:
+		#var col_sprite3d_child = collider.get_node("Sprite3D")
+		#if col_sprite3d_child:
 			# outlines object when within visible range
 			%PromptHUD.get_node("PickupPanel").show()
 		return collider
@@ -115,6 +127,8 @@ func get_looked_at_object(max_distance := 100.0) -> Node3D:
 		return null
 
 func _ready() -> void:
+	camera = $PlayerCamera
+	campfire = get_tree().root.get_node("Map/Campfire") as Campfire
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
@@ -152,36 +166,53 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation_degrees.x = rotation_y
 
 func _process(_delta: float) -> void:
+	# Handle picking up and dropping items
 	get_looked_at_object(pickup_distance)
 	if Input.is_action_just_pressed("ui_interact"):
-		if not is_holding_item:
+		if not is_holding_item: # Pick up item
 			var node := get_looked_at_object(pickup_distance)
 			if node:
-				var pickup := node as Pickupable
-				pickup.pick_up()
-		else:
+				if "Fire Item" in node.get_groups():
+					campfire.get_fire_item()
+					node.queue_free()
+				elif "Burnable" in node.get_groups():
+					# TO DO: Burn Object/ add fire effect; currently adds fire sprite
+					var burnable_item = node as Burnable
+					if burnable_item.active and not burnable_item.is_on_fire:
+						burnable_item.is_on_fire = true
+						var instance: Node3D = fire_scene.instantiate()
+						node.add_child(instance)
+						instance.global_position = node.global_position
+						campfire.light_fire()
+				elif not "Campfire" in node.get_groups():
+					var pickup := node as Pickupable
+					pickup.pick_up()
+		else: # Drop item or add to fire
 			var node := get_looked_at_object(pickup_distance)
 			if node:
-				#print("Campfire" in node.get_groups(), " ", "Burnable" in held_item.get_groups())
-				if "Campfire" in node.get_groups() and "Burnable" in held_item.get_groups():
-					var campfire := node as Campfire
+				if "Campfire" in node.get_groups() and "Wood" in held_item.get_groups():
 					var fuel_item := held_item as Pickupable
 					campfire.add_fuel(fuel_item.fuel_amount)
 					held_item.queue_free()
 					is_holding_item = false
 					held_item = null
+				elif "Campfire" in node.get_groups() and "Belonging" in held_item.get_groups():
+					campfire.add_belonging()
+					held_item.queue_free()
+					is_holding_item = false
+					held_item = null
 				else:
-					var drop_pos := get_look_position()
-					held_item.drop_item(drop_pos)
+					var drop_pos := get_look_position(pickup_distance)
+					if drop_pos != Vector3.ZERO:
+						held_item.drop_item(drop_pos)
 			else:
-				var drop_pos := get_look_position()
-				held_item.drop_item(drop_pos)
+				var drop_pos := get_look_position(pickup_distance)
+				if drop_pos != Vector3.ZERO:
+					held_item.drop_item(drop_pos)
 	
 	# Handle hover/outline shader
 	var last_looked_at_object = looked_at_object
-	looked_at_object = get_looked_at_object()
-	#print(looked_at_object)
-	#print(looked_at_object == null)
+	looked_at_object = get_looked_at_object(pickup_distance)
 	if last_looked_at_object and looked_at_object != last_looked_at_object:
 		var col_sprite3d_child = last_looked_at_object.get_node("Sprite3D")
 		if col_sprite3d_child:

@@ -45,4 +45,4 @@ func _ready() -> void:
 	map = get_tree().root.get_node("Map")
 	player = map.get_node("Player")
 	pc = player as PlayerController
-	pickup_point = player.get_node("PlayerCamera/ItemCarryPoint")
+	pickup_point = player.get_node("PlayerCamera/Hand/ItemCarryPoint")

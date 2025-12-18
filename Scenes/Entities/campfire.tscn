@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2q27maoaq61d"]
 
 [ext_resource type="Script" uid="uid://byr15wwts30cc" path="res://Scripts/campfire.gd" id="1_qcxes"]
-[ext_resource type="Texture2D" uid="uid://dwvf0x1cer0ja" path="res://Sprites/fire pit tmp.jpg" id="2_a7vrp"]
+[ext_resource type="Texture2D" uid="uid://dwvf0x1cer0ja" path="res://Sprites/Temporary/fire pit tmp.jpg" id="2_a7vrp"]
 [ext_resource type="AudioStream" uid="uid://dxvg8j5vls6t8" path="res://Assets/SFX/9726__rbirdwise__campfire-crackling/157187__rbirdwise__campfire-crackle-3.wav" id="3_mnbo1"]
 [ext_resource type="AudioStream" uid="uid://bks46s3wkm577" path="res://Assets/SFX/530355__danielpodlovics__fire.wav" id="4_s4mwt"]
 [ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="5_s4mwt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]
 
-[node name="Sprite" type="Node3D" groups=["Campfire", "Interactable"]]
+[node name="Campfire" type="Node3D" groups=["Campfire", "Interactable"]]
 script = ExtResource("1_qcxes")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

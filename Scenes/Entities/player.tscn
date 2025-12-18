@@ -9,10 +9,10 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_v0iea"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera")]
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(0.849526, 0, 0, 0, 0.849526, 0, 0, 0, 0.849526, 0, 0, 0)
 script = ExtResource("1_4flbx")
-camera = NodePath("PlayerCamera")
-pickup_distance = 5.0
+pickup_distance = 3.0
 
 [node name="CapsuleMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -26,14 +26,6 @@ debug_color = Color(0, 0.6, 0.69803923, 1)
 [node name="PlayerCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 
-[node name="ItemCarryPoint" type="Node3D" parent="PlayerCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56672543, -0.27866364, -0.6211909)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerCamera/ItemCarryPoint"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-cast_shadow = 0
-mesh = SubResource("SphereMesh_v0iea")
-
 [node name="Flashlight" type="Node3D" parent="PlayerCamera"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="PlayerCamera/Flashlight"]
@@ -41,6 +33,15 @@ light_energy = 16.0
 light_volumetric_fog_energy = 0.1
 spot_range = 15.0
 spot_angle = 50.0
+
+[node name="Hand" type="MeshInstance3D" parent="PlayerCamera"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.39313018, -0.3760916, -0.711337)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_v0iea")
+skeleton = NodePath("ItemCarryPoint")
+
+[node name="ItemCarryPoint" type="Node3D" parent="PlayerCamera/Hand"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="WalkAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_nqm6o")

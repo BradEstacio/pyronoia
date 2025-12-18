@@ -7,7 +7,8 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]
 
-[node name="Sprite" type="Node3D" groups=["Burnable", "Interactable", "Item"]]
+[node name="Wood" type="Node3D" groups=["Interactable", "Item", "Wood"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045009673, 0.071951866, -0.004870653)
 script = ExtResource("1_tfydv")
 default_size = 0.01
 holding_size = 0.005

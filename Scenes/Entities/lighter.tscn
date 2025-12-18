@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuq8oct2uyqkf"]
+
+[ext_resource type="Script" uid="uid://b2jwgporrwtsm" path="res://Scripts/pickupable.gd" id="1_0p2mx"]
+[ext_resource type="Texture2D" uid="uid://cn0wsvr7yf7a3" path="res://Sprites/Temporary/lighter TMP.png" id="2_ssd3n"]
+[ext_resource type="AudioStream" uid="uid://dunytfy3voq5l" path="res://Assets/SFX/352118__inspectorj__dropping-wood-j.wav" id="5_8cp4p"]
+[ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="6_2eu46"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]
+
+[node name="Lighter" type="Node3D" groups=["Fire Item", "Interactable", "Item"]]
+script = ExtResource("1_0p2mx")
+active = false
+default_size = 0.01
+holding_size = 0.005
+fuel_amount = 50.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.11169797, 0, 0, 0, 0.11169797, 0, 0, 0, 0.11169797, 0, 0, 0)
+cast_shadow = 0
+offset = Vector2(0, 445)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_ssd3n")
+
+[node name="SpriteStaticBody" type="StaticBody3D" parent="." groups=["Sprite Collider"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpriteStaticBody" groups=["Sprite Collider"]]
+shape = SubResource("SphereShape3D_8v6no")
+
+[node name="PickUp" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+stream = ExtResource("5_8cp4p")
+
+[node name="DropOffWood" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_2eu46")

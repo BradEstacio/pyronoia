@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://djoxdb13sw2oh"]
 
-[ext_resource type="Texture2D" uid="uid://bpmwag8vq02ur" path="res://Sprites/Warning Sign.png" id="1_il7i5"]
+[ext_resource type="Texture2D" uid="uid://bpmwag8vq02ur" path="res://Sprites/Temporary/Warning Sign.png" id="1_il7i5"]
 [ext_resource type="Script" uid="uid://b2jwgporrwtsm" path="res://Scripts/pickupable.gd" id="1_qmjsp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]

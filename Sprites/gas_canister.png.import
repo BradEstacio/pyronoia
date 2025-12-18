@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpmwag8vq02ur"
-path="res://.godot/imported/Warning Sign.png-53f65ded121f98447e6639595d6c486e.ctex"
+uid="uid://b7rpidwphd2pa"
+path.s3tc="res://.godot/imported/gas_canister.png-eda34d040bef2f823fc235d88b67b62c.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Sprites/Warning Sign.png"
-dest_files=["res://.godot/imported/Warning Sign.png-53f65ded121f98447e6639595d6c486e.ctex"]
+source_file="res://Sprites/gas_canister.png"
+dest_files=["res://.godot/imported/gas_canister.png-eda34d040bef2f823fc235d88b67b62c.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -23,9 +24,9 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
+roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1

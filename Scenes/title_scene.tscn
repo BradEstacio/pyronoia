@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://csvc6q84p6tj5"]
+
+[ext_resource type="PackedScene" uid="uid://dk205vq50m8dh" path="res://Scenes/VFX/fire_vfx.tscn" id="1_orl8w"]
+[ext_resource type="PackedScene" uid="uid://biktfy6wpvlq" path="res://Assets/Map2_Final.glb" id="1_phepx"]
+[ext_resource type="Texture2D" uid="uid://cprgmq8ws6i50" path="res://Assets/Sprites/campfire lit.png" id="3_8xpg0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phepx"]
+sky_top_color = Color(0.08235294, 0.12941177, 0.16470589, 1)
+sky_horizon_color = Color(0.015686275, 0.05490196, 0.08627451, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_e0an3"]
+sky_material = SubResource("ProceduralSkyMaterial_phepx")
+
+[sub_resource type="Environment" id="Environment_orl8w"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_e0an3")
+tonemap_mode = 3
+tonemap_white = 7.0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.44705883, 0.48235294, 0.50980395, 1)
+fog_light_energy = 1.25
+fog_density = 0.5
+fog_sky_affect = 0.45
+fog_depth_curve = 0.14489062
+fog_depth_begin = 0.0
+fog_depth_end = 4000.0
+volumetric_fog_albedo = Color(0.44705883, 0.48235294, 0.50980395, 1)
+volumetric_fog_emission = Color(0.23137255, 0.26666668, 0.29411766, 1)
+volumetric_fog_emission_energy = 0.1
+adjustment_enabled = true
+adjustment_brightness = 0.3
+
+[node name="TitleScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.96629536, -0.008941389, -0.2572808, -0.03200794, 0.987469, -0.15453336, 0.25543854, 0.1575599, 0.9539005, -0.13995361, -0.87454337, 4.1453853)
+current = true
+fov = 85.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_orl8w")
+
+[node name="FireVFX" parent="." instance=ExtResource("1_orl8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.805604, 0.4549203)
+visible = false
+
+[node name="Map2_Final" parent="." instance=ExtResource("1_phepx")]
+
+[node name="Cube_014" parent="Map2_Final" index="0"]
+transform = Transform3D(12.54804, 1.7714096, 0.7040676, -3.8931265, 1.6479108, 12.190891, 5.3502307, -2.955423, 7.2195053, 404.76245, 441.33548, -659.27216)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map2_Final/Cube_014" index="0"]
+transform = Transform3D(0.07044252, 0.0016744235, 0.0020902567, 0.001520127, 0.17694348, -0.19297169, -0.002646762, 0.051931176, 0.047596924, 0.36001492, -3.3281708, 1.9572954)
+light_energy = 0.35
+light_indirect_energy = 0.0
+sky_mode = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.18121225, -1.2056632, 0.39218187)
+billboard = 2
+texture = ExtResource("3_8xpg0")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.31858468, 2.0562248, 0.49921703)
+light_color = Color(1, 0.5294118, 0.32941177, 1)
+light_energy = 16.0
+omni_range = 25.0
+
+[editable path="Map2_Final"]

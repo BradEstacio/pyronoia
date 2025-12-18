@@ -1,11 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcb7vxqoukneu"]
+[gd_scene load_steps=9 format=3 uid="uid://dcb7vxqoukneu"]
 
 [ext_resource type="Script" uid="uid://da8pk1rkjcug0" path="res://Scripts/title_screen.gd" id="1_fgkus"]
 [ext_resource type="FontFile" uid="uid://cdwvktswtdgrk" path="res://Assets/Fonts/Jinky/JINKY.ttf" id="2_s4lrb"]
 [ext_resource type="PackedScene" uid="uid://i1awffaptrtw" path="res://Scenes/Screens/credits.tscn" id="2_sa3yf"]
+[ext_resource type="Texture2D" uid="uid://bvoatukvlb00r" path="res://Assets/Sprites/WoodUI/wood3_dark.png" id="3_eo18w"]
+[ext_resource type="Texture2D" uid="uid://b7ht12f85lgl" path="res://Assets/Sprites/WoodUI/wood3_light.png" id="4_0575v"]
 [ext_resource type="AudioStream" uid="uid://bvtbmkves55rg" path="res://Assets/SFX/660298__ambient-x__campfire-deer-camp-adding-kindling-med-wind-part-4.wav" id="4_ed76m"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1s85s"]
+[ext_resource type="Texture2D" uid="uid://utta21b4uyf4" path="res://Assets/Sprites/WoodUI/wood2_dark.png" id="5_sb3vm"]
+[ext_resource type="Texture2D" uid="uid://xkyvvuwu5h52" path="res://Assets/Sprites/WoodUI/wood2_light.png" id="6_737wf"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -16,19 +18,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fgkus")
 
-[node name="PlaceholderBG" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 960.0
-offset_bottom = 540.0
-color = Color(0.23137255, 0.26666668, 0.29411766, 1)
-metadata/_edit_lock_ = true
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 15.0
-offset_right = 750.0
-offset_bottom = 246.0
+offset_left = 25.0
+offset_right = 428.0
+offset_bottom = 260.0
 theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
 theme_override_fonts/font = ExtResource("2_s4lrb")
 theme_override_font_sizes/font_size = 200
@@ -38,52 +32,53 @@ vertical_alignment = 1
 
 [node name="Start" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 250.0
-offset_right = 560.0
-offset_bottom = 325.0
-texture_normal = SubResource("PlaceholderTexture2D_1s85s")
-
-[node name="ColorRect" type="ColorRect" parent="Start"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
-mouse_filter = 2
-color = Color(0.64705884, 0.16470589, 0.16470589, 1)
+offset_left = 650.0
+offset_top = 300.0
+offset_right = 1111.0
+offset_bottom = 430.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_eo18w")
+texture_pressed = ExtResource("4_0575v")
+texture_hover = ExtResource("4_0575v")
 
 [node name="Label" type="Label" parent="Start"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_right = 25.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
 theme_override_fonts/font = ExtResource("2_s4lrb")
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 110
 text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Credits" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 350.0
-offset_right = 560.0
-offset_bottom = 425.0
-texture_normal = SubResource("PlaceholderTexture2D_1s85s")
-
-[node name="ColorRect" type="ColorRect" parent="Credits"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
-mouse_filter = 2
-color = Color(0.64705884, 0.16470589, 0.16470589, 1)
+offset_left = 650.0
+offset_top = 400.0
+offset_right = 1654.0
+offset_bottom = 794.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_sb3vm")
+texture_pressed = ExtResource("6_737wf")
+texture_hover = ExtResource("6_737wf")
 
 [node name="Label" type="Label" parent="Credits"]
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
+offset_left = 125.0
+offset_top = 30.0
+offset_right = 325.0
+offset_bottom = 169.0
+rotation = 0.2617994
 theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
 theme_override_fonts/font = ExtResource("2_s4lrb")
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 120
 text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1

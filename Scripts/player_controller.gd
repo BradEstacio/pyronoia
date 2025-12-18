@@ -118,10 +118,10 @@ func get_looked_at_object(max_distance := 100.0) -> Node3D:
 		return null
 
 	if "Interactable" in collider.get_groups():
-		#var col_sprite3d_child = collider.get_node("Sprite3D")
-		#if col_sprite3d_child:
+		var col_sprite3d_child = collider.get_node("Sprite3D")
+		if col_sprite3d_child:
 			# outlines object when within visible range
-			#col_sprite3d_child.material_override.set_shader_parameter("onoff", 1.0)
+			%PromptHUD.get_node("PickupPanel").show()
 		return collider
 	else:
 		return null
@@ -211,9 +211,9 @@ func _process(_delta: float) -> void:
 					held_item.drop_item(drop_pos)
 	
 	# Handle hover/outline shader
-	#var last_looked_at_object = looked_at_object
-	#looked_at_object = get_looked_at_object(pickup_distance)
-	#if last_looked_at_object and looked_at_object != last_looked_at_object:
-		#var col_sprite3d_child = last_looked_at_object.get_node("Sprite3D")
-		#if col_sprite3d_child:
-			##col_sprite3d_child.material_override.set_shader_parameter("onoff", 0.0)
+	var last_looked_at_object = looked_at_object
+	looked_at_object = get_looked_at_object(pickup_distance)
+	if last_looked_at_object and looked_at_object != last_looked_at_object:
+		var col_sprite3d_child = last_looked_at_object.get_node("Sprite3D")
+		if col_sprite3d_child:
+			%PromptHUD.get_node("PickupPanel").hide()

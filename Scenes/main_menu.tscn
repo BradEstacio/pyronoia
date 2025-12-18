@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dey7mff7y0p61"]
+
+[ext_resource type="PackedScene" uid="uid://csvc6q84p6tj5" path="res://Scenes/title_scene.tscn" id="1_48xlc"]
+[ext_resource type="PackedScene" uid="uid://dcb7vxqoukneu" path="res://Scenes/Screens/title_screen.tscn" id="2_1ehe0"]
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="TitleScene" parent="." instance=ExtResource("1_48xlc")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="TitleScreen" parent="CanvasLayer" instance=ExtResource("2_1ehe0")]
+
+[editable path="TitleScene"]
+[editable path="TitleScene/Map2_Final"]

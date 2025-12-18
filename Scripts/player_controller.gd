@@ -118,8 +118,8 @@ func get_looked_at_object(max_distance := 100.0) -> Node3D:
 		return null
 
 	if "Interactable" in collider.get_groups():
-		#var col_sprite3d_child = collider.get_node("Sprite3D")
-		#if col_sprite3d_child:
+		var col_sprite3d_child = collider.get_node("Sprite3D")
+		if col_sprite3d_child:
 			# outlines object when within visible range
 			%PromptHUD.get_node("PickupPanel").show()
 		return collider

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bs1udunx5w15l"]
+[gd_scene load_steps=19 format=3 uid="uid://bs1udunx5w15l"]
 
 [ext_resource type="PackedScene" uid="uid://c6we6ca5i1dps" path="res://Scenes/plane.tscn" id="1_wijl4"]
 [ext_resource type="PackedScene" uid="uid://dd3nwm25hka8f" path="res://Scenes/Entities/player.tscn" id="2_e0an3"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://6vkuif0e1714" path="res://Scenes/HUD/crosshair.tscn" id="9_4c2oa"]
 [ext_resource type="PackedScene" uid="uid://d3t8w0nfj5bdd" path="res://Scenes/Entities/backpack.tscn" id="10_olcgw"]
 [ext_resource type="PackedScene" uid="uid://cjg5vvdlevb0f" path="res://Scenes/Entities/corn.tscn" id="11_dlo4w"]
+[ext_resource type="PackedScene" uid="uid://ban7lisi8yhnb" path="res://Scenes/HUD/prompt_hud.tscn" id="11_x5dfk"]
 [ext_resource type="PackedScene" uid="uid://48vx1iaq11sm" path="res://Scenes/Entities/gas_can.tscn" id="12_q6lx1"]
 [ext_resource type="PackedScene" uid="uid://cuq8oct2uyqkf" path="res://Scenes/Entities/lighter.tscn" id="13_5qtum"]
 
@@ -86,7 +87,7 @@ unique_name_in_owner = true
 
 [node name="Crosshair" parent="CanvasLayer" instance=ExtResource("9_4c2oa")]
 
-[node name="PromptHUD" parent="CanvasLayer" instance=ExtResource("10_olcgw")]
+[node name="PromptHUD" parent="CanvasLayer" instance=ExtResource("11_x5dfk")]
 unique_name_in_owner = true
 
 [node name="Corn" parent="." instance=ExtResource("11_dlo4w")]

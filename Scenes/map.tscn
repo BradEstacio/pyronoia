@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bs1udunx5w15l"]
+[gd_scene load_steps=14 format=3 uid="uid://bs1udunx5w15l"]
 
 [ext_resource type="PackedScene" uid="uid://c6we6ca5i1dps" path="res://Scenes/plane.tscn" id="1_wijl4"]
 [ext_resource type="PackedScene" uid="uid://dd3nwm25hka8f" path="res://Scenes/Entities/player.tscn" id="2_e0an3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bxe4fmvovjpqt" path="res://Scenes/HUD/task_list.tscn" id="6_w7jjh"]
 [ext_resource type="PackedScene" uid="uid://bi7mfqi7cma2g" path="res://Scenes/HUD/fuel_bar.tscn" id="8_6q3n4"]
 [ext_resource type="PackedScene" uid="uid://6vkuif0e1714" path="res://Scenes/HUD/crosshair.tscn" id="9_4c2oa"]
+[ext_resource type="PackedScene" uid="uid://ban7lisi8yhnb" path="res://Scenes/HUD/prompt_hud.tscn" id="10_olcgw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wijl4"]
 sky_top_color = Color(0.08235294, 0.12941177, 0.16470589, 1)
@@ -82,6 +83,9 @@ unique_name_in_owner = true
 
 [node name="Crosshair" parent="CanvasLayer" instance=ExtResource("9_4c2oa")]
 
+[node name="PromptHUD" parent="CanvasLayer" instance=ExtResource("10_olcgw")]
+unique_name_in_owner = true
+
 [editable path="Player"]
 [editable path="Campfire"]
 [editable path="Wood"]
@@ -89,3 +93,4 @@ unique_name_in_owner = true
 [editable path="Wood3"]
 [editable path="CanvasLayer/Vignette"]
 [editable path="CanvasLayer/FuelBar"]
+[editable path="CanvasLayer/PromptHUD"]

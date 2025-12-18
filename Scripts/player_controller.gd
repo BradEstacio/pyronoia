@@ -109,7 +109,7 @@ func get_looked_at_object(max_distance := 100.0) -> Node3D:
 		var col_sprite3d_child = collider.get_node("Sprite3D")
 		if col_sprite3d_child:
 			# outlines object when within visible range
-			col_sprite3d_child.material_override.set_shader_parameter("onoff", 1.0)
+			%PromptHUD.get_node("PickupPanel").show()
 		return collider
 	else:
 		return null
@@ -185,4 +185,4 @@ func _process(_delta: float) -> void:
 	if last_looked_at_object and looked_at_object != last_looked_at_object:
 		var col_sprite3d_child = last_looked_at_object.get_node("Sprite3D")
 		if col_sprite3d_child:
-			col_sprite3d_child.material_override.set_shader_parameter("onoff", 0.0)
+			%PromptHUD.get_node("PickupPanel").hide()

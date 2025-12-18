@@ -44,8 +44,13 @@ fov = 85.0
 environment = SubResource("Environment_orl8w")
 
 [node name="FireVFX" parent="." instance=ExtResource("1_orl8w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.805604, 0.4549203)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0176184, 0.4549203)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FireVFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3514099, 0.54969335, 0.49921703)
+light_color = Color(1, 0.5294118, 0.32941177, 1)
+light_energy = 16.0
+omni_range = 25.0
 
 [node name="Map2_Final" parent="." instance=ExtResource("1_phepx")]
 

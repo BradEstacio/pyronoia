@@ -1,24 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2q27maoaq61d"]
+[gd_scene load_steps=7 format=3 uid="uid://c2q27maoaq61d"]
 
 [ext_resource type="Script" uid="uid://byr15wwts30cc" path="res://Scripts/campfire.gd" id="1_qcxes"]
 [ext_resource type="Texture2D" uid="uid://dwvf0x1cer0ja" path="res://Sprites/fire pit tmp.jpg" id="2_a7vrp"]
-[ext_resource type="Shader" uid="uid://df7sbuuthn6hj" path="res://Scenes/Entities/highlight.gdshader" id="2_ftfgn"]
 [ext_resource type="AudioStream" uid="uid://dxvg8j5vls6t8" path="res://Assets/SFX/9726__rbirdwise__campfire-crackling/157187__rbirdwise__campfire-crackle-3.wav" id="3_mnbo1"]
 [ext_resource type="AudioStream" uid="uid://bks46s3wkm577" path="res://Assets/SFX/530355__danielpodlovics__fire.wav" id="4_s4mwt"]
 [ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="5_s4mwt"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qmjfc"]
-render_priority = 0
-shader = ExtResource("2_ftfgn")
-shader_parameter/sprite_texture = ExtResource("2_a7vrp")
-shader_parameter/onoff = 0.0
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/glowSize = 15.0
-shader_parameter/glowDensity = 3
-shader_parameter/glowRadialCoverage = 4
-shader_parameter/glowAngle = 1.57
-shader_parameter/glowSharpness = 1.0
-shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]
 
@@ -27,7 +13,6 @@ script = ExtResource("1_qcxes")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.129, 0, 0, 0, 0.129, 0, 0, 0, 0.129, 0, 0, 0)
-material_override = SubResource("ShaderMaterial_qmjfc")
 cast_shadow = 0
 offset = Vector2(0, 391)
 billboard = 2

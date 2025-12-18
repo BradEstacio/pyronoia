@@ -1,24 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://gra3ji62q65o"]
+[gd_scene load_steps=6 format=3 uid="uid://gra3ji62q65o"]
 
 [ext_resource type="Script" uid="uid://b2jwgporrwtsm" path="res://Scripts/pickupable.gd" id="1_tfydv"]
-[ext_resource type="Shader" uid="uid://df7sbuuthn6hj" path="res://Scenes/Entities/highlight.gdshader" id="2_43xxu"]
 [ext_resource type="Texture2D" uid="uid://cty4ve3kyniwj" path="res://Assets/a-single-log-on-a-transparent-background-png.webp" id="3_43xxu"]
 [ext_resource type="AudioStream" uid="uid://dunytfy3voq5l" path="res://Assets/SFX/352118__inspectorj__dropping-wood-j.wav" id="3_bxtp4"]
 [ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="4_iqssn"]
-[ext_resource type="Script" uid="uid://b4r71ae3n3r35" path="res://Scenes/Entities/sprite_3d.gd" id="4_jgsbs"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3hiym"]
-render_priority = 0
-shader = ExtResource("2_43xxu")
-shader_parameter/sprite_texture = ExtResource("3_43xxu")
-shader_parameter/onoff = 0.0
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/glowSize = 15.0
-shader_parameter/glowDensity = 6
-shader_parameter/glowRadialCoverage = 13
-shader_parameter/glowAngle = 1.57
-shader_parameter/glowSharpness = 0.0
-shader_parameter/alphaThreshold = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]
 
@@ -30,13 +15,11 @@ fuel_amount = 50.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.063, 0, 0, 0, 0.063, 0, 0, 0, 0.063, 0, 0, 0)
-material_override = SubResource("ShaderMaterial_3hiym")
 cast_shadow = 0
 offset = Vector2(0, 790)
 billboard = 2
 texture_filter = 0
 texture = ExtResource("3_43xxu")
-script = ExtResource("4_jgsbs")
 
 [node name="SpriteStaticBody" type="StaticBody3D" parent="." groups=["Sprite Collider"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

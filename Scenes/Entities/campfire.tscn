@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2q27maoaq61d"]
+[gd_scene load_steps=9 format=3 uid="uid://c2q27maoaq61d"]
 
 [ext_resource type="Script" uid="uid://byr15wwts30cc" path="res://Scripts/campfire.gd" id="1_qcxes"]
 [ext_resource type="Texture2D" uid="uid://dwvf0x1cer0ja" path="res://Sprites/Temporary/fire pit tmp.jpg" id="2_a7vrp"]
-[ext_resource type="AudioStream" uid="uid://dxvg8j5vls6t8" path="res://Assets/SFX/9726__rbirdwise__campfire-crackling/157187__rbirdwise__campfire-crackle-3.wav" id="3_mnbo1"]
+[ext_resource type="AudioStream" uid="uid://ciksxuejfno8l" path="res://Assets/SFX/9726__rbirdwise__campfire-crackling/157185__rbirdwise__campfire-crackle-1.wav" id="3_ftfgn"]
 [ext_resource type="AudioStream" uid="uid://bks46s3wkm577" path="res://Assets/SFX/530355__danielpodlovics__fire.wav" id="4_s4mwt"]
 [ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="5_s4mwt"]
+[ext_resource type="AudioStream" uid="uid://cvpj5tkeyemm7" path="res://Assets/SFX/369017__patobottos__heartbeats-61.wav" id="6_ftfgn"]
+[ext_resource type="AudioStream" uid="uid://bv5pjeyih0o4b" path="res://Assets/SFX/332809__loudernoises__heartbeat-100bpm-limited.wav" id="7_qmjfc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]
 
@@ -26,15 +28,26 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpriteStaticBody" groups=["Sprite Collider"]]
 shape = SubResource("SphereShape3D_8v6no")
 
-[node name="Campfire1" type="AudioStreamPlayer3D" parent="."]
+[node name="CampfireCrackle" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-stream = ExtResource("3_mnbo1")
-autoplay = true
+stream = ExtResource("3_ftfgn")
+max_distance = 4096.0
 
 [node name="AddKindling" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_s4mwt")
+volume_db = -12.5
 
 [node name="DropOffWood" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_s4mwt")
 volume_db = -12.5
 pitch_scale = 0.75
+
+[node name="Heartbeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ftfgn")
+volume_db = -20.0
+
+[node name="HeartbeatFast" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qmjfc")
+volume_db = -17.5
+
+[connection signal="finished" from="CampfireCrackle" to="." method="_on_campfire_sound_finished"]

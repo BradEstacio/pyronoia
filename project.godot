@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 OpenButtonSfx="*res://Scenes/SFX/open_button_sfx.tscn"
 CloseButtonSfx="*res://Scenes/SFX/close_button_sfx.tscn"
+TaskUpdate="*res://Scenes/SFX/task_update.tscn"
 
 [display]
 

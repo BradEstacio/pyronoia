@@ -39,7 +39,7 @@ func add_fuel(fuel_added := 0.0) -> void:
 
 func add_belonging() -> void:
 	print("Added belonging!")
-	$DropOffWood.play()
+	#$DropOffWood.play()
 	$AddKindling.play()
 	cur_belongings += 1
 	await $AddKindling.finished
@@ -50,7 +50,7 @@ func get_fire_item() -> void:
 
 func light_fire() -> void:
 	print("Created fire!")
-	$DropOffWood.play()
+	OpenButtonSfx.play()
 	$AddKindling.play()
 	cur_fires += 1
 	await $AddKindling.finished
@@ -83,7 +83,7 @@ func _process(delta: float) -> void:
 		%Vignette.modulate.a = abs(1 - fuel_percent)
 		whispers.volume_db = -40.0 + (30 * abs(0.75 - fuel_percent_offset))
 		if fuel_level <= 0:
-			get_tree().change_scene_to_file("res://Scenes/Screens/lose_screen.tscn")
+			get_tree().change_scene_to_file("res://Scenes/lose_scene.tscn")
 		if cur_wood >= wood_needed:
 			print("Stage 0 - Wood: Completed.")
 			stage += 1
@@ -126,12 +126,12 @@ func _process(delta: float) -> void:
 				object_pickup.active = true
 			TaskUpdate.pitch_scale = 1.25
 			TaskUpdate.play()
-			task_list_text.text = "-Its too late\n-Light everything on fire\n-Tents, Corn, LakeHouse, Deep Forest, Building"
+			task_list_text.text = "-Its too late\n-Burn it all\n-Tents - Corn - Lake House - Deep Forest - Building"
 			# TO DO: add writing noise
 	elif stage == 3: # Light everything on fire
 		if cur_fires >= fires_needed:
 			print("Stage 3 - Light fires: Completed.")
-			get_tree().change_scene_to_file("res://Scenes/Screens/win_screen.tscn")
+			get_tree().change_scene_to_file("res://Scenes/final_scene.tscn")
 		
 	if ((fuel_percent <= 0.75 and fuel_percent > 0.5) or (stage >= 1 and stage < 3)) and !slow_heartbeat_playing:
 		if fast_heartbeat_playing:

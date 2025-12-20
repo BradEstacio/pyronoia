@@ -12,12 +12,14 @@ metallic_specular = 0.0
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="PlaneMesh" type="MeshInstance3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_fnun3")
 mesh = SubResource("PlaneMesh_r8t2q")
 skeleton = NodePath("../PlaneStaticBody/PlaneCollider")
 
 [node name="PlaneMesh2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_fnun3")
 mesh = SubResource("PlaneMesh_r8t2q")
 skeleton = NodePath("../PlaneStaticBody/PlaneCollider")

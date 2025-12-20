@@ -1,25 +1,13 @@
-[gd_scene load_steps=130 format=3 uid="uid://d18hirupye87j"]
+[gd_scene load_steps=118 format=3 uid="uid://cc3l4m8ymachu"]
 
-[ext_resource type="PackedScene" uid="uid://dk205vq50m8dh" path="res://Scenes/VFX/fire_vfx.tscn" id="1_1vevx"]
-[ext_resource type="Environment" uid="uid://dyjetdupli78k" path="res://Scenes/main_map_environment.tres" id="1_nfd1w"]
-[ext_resource type="Script" uid="uid://b3to4303nm4f4" path="res://Scenes/main_map.gd" id="1_ujqxa"]
-[ext_resource type="PackedScene" uid="uid://dd3nwm25hka8f" path="res://Scenes/Entities/player.tscn" id="4_tvgjd"]
-[ext_resource type="PackedScene" uid="uid://b1ogfes7h7xlg" path="res://Assets/Map3_Final-fix.glb" id="5_nfd1w"]
-[ext_resource type="PackedScene" uid="uid://bxe4fmvovjpqt" path="res://Scenes/HUD/task_list.tscn" id="6_4yy1u"]
-[ext_resource type="PackedScene" uid="uid://w5302lbqh8fb" path="res://Scenes/HUD/vignette.tscn" id="7_eiwau"]
-[ext_resource type="PackedScene" uid="uid://bi7mfqi7cma2g" path="res://Scenes/HUD/fuel_bar.tscn" id="8_mhlh8"]
-[ext_resource type="PackedScene" uid="uid://6vkuif0e1714" path="res://Scenes/HUD/crosshair.tscn" id="9_up1bk"]
-[ext_resource type="PackedScene" uid="uid://c2q27maoaq61d" path="res://Scenes/Entities/campfire.tscn" id="10_4yy1u"]
-[ext_resource type="PackedScene" uid="uid://ban7lisi8yhnb" path="res://Scenes/HUD/prompt_hud.tscn" id="10_abex8"]
-[ext_resource type="PackedScene" uid="uid://gra3ji62q65o" path="res://Scenes/Entities/wood1.tscn" id="11_eiwau"]
-[ext_resource type="PackedScene" uid="uid://ksmotqsl26fr" path="res://Scenes/Entities/fire_bounds.tscn" id="12_8w7vt"]
-[ext_resource type="PackedScene" uid="uid://b5n75esvcr1yp" path="res://Scenes/Entities/wood3.tscn" id="12_abex8"]
-[ext_resource type="PackedScene" uid="uid://pr2xqvppgi30" path="res://Scenes/Entities/wood2.tscn" id="12_mhlh8"]
-[ext_resource type="PackedScene" uid="uid://5hec2lxqlg8s" path="res://Scenes/border_wall.tscn" id="13_up1bk"]
-[ext_resource type="PackedScene" uid="uid://cuq8oct2uyqkf" path="res://Scenes/Entities/lighter.tscn" id="13_vq146"]
-[ext_resource type="PackedScene" uid="uid://48vx1iaq11sm" path="res://Scenes/Entities/gas_can.tscn" id="14_mreu3"]
-[ext_resource type="PackedScene" uid="uid://d3t8w0nfj5bdd" path="res://Scenes/Entities/backpack.tscn" id="15_8w7vt"]
-[ext_resource type="PackedScene" uid="uid://lowbsrjse5d0" path="res://Scenes/Entities/ramp.tscn" id="18_mreu3"]
+[ext_resource type="Environment" uid="uid://dyjetdupli78k" path="res://Scenes/main_map_environment.tres" id="2_wendm"]
+[ext_resource type="PackedScene" uid="uid://rana5sxnnj0i" path="res://Scenes/Screens/win_screen.tscn" id="3_cgfx3"]
+[ext_resource type="PackedScene" uid="uid://dk205vq50m8dh" path="res://Scenes/VFX/fire_vfx.tscn" id="4_1rq2m"]
+[ext_resource type="PackedScene" uid="uid://c2q27maoaq61d" path="res://Scenes/Entities/campfire.tscn" id="10_rkm2e"]
+[ext_resource type="PackedScene" uid="uid://b1ogfes7h7xlg" path="res://Assets/Map3_Final-fix.glb" id="11_mgfk4"]
+[ext_resource type="PackedScene" uid="uid://ksmotqsl26fr" path="res://Scenes/Entities/fire_bounds.tscn" id="14_g6kgb"]
+[ext_resource type="PackedScene" uid="uid://5hec2lxqlg8s" path="res://Scenes/border_wall.tscn" id="16_ai5c1"]
+[ext_resource type="PackedScene" uid="uid://lowbsrjse5d0" path="res://Scenes/Entities/ramp.tscn" id="17_lsy5y"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5md5v"]
 points = PackedVector3Array(0.085586295, 0.21243851, 0.18353075, -0.0658816, 5.551115e-17, -0.2261387, -0.06479074, 0.03201918, -0.22235379, -0.22361322, 0.0013331904, 0.070624925, 0.22395949, 0.000102557045, 0.071378745, 0.032905124, 0.2352268, -0.19338425, -0.19270055, 0.23477994, -0.034827106, -0.073107034, 0.00065275707, 0.22286777, 0.17397414, 0.23370916, -0.09408022, 0.17017034, 0.00035632658, -0.16460344, -0.11725533, 0.23456573, 0.16024359, 0.16935065, 0.23565035, 0.10118206, -0.22308744, 0.001609412, -0.07248431, 0.16306196, 2.7755576e-17, 0.17069374, -0.088636875, 0.23640773, -0.18009879, 0.07082387, 0.0010496379, -0.224141, 0.22116405, 0.054284643, -0.049937725, -0.17036156, 0.001629839, -0.16279338, -0.019782437, 0.23470204, 0.19799654, 0.07124034, 0.00036981504, 0.22340627, 0.19870517, 0.23509236, 0.01778713, -0.1660846, 0.2372795, -0.11229951, -0.17580569, 0.2335722, 0.09194121, -0.16418803, 0.00065894716, 0.16969338, 0.11536029, 0.2346669, -0.16245583, 0.22237672, 0.0009340841, -0.07289798, -0.20087436, 0.21253756, -0.004759594, 0.0027420786, 0.21239662, -0.20052303, 0.16155598, 0.23548561, 0.11614787, 0.047983754, 0.054159306, 0.22155486, 0.18446167, 0.23560916, -0.06531813, -0.22303757, 0.039270572, 0.055401307)
@@ -348,11 +336,10 @@ points = PackedVector3Array(0.085586295, 0.21243851, 0.18353075, -0.0658816, 5.5
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4dw7y"]
 points = PackedVector3Array(0.048014313, 0.41210562, 0.22149715, -0.057669707, 0.24597755, -0.18605556, 0.22187932, 0.45751607, -0.07273792, -0.22308302, 0.45720685, 0.07045406, 0.09362459, 0.24569413, 0.17688407, -0.17805427, 0.24630174, 0.09313654, 0.17538948, 0.24674024, -0.09483307, 0.2235289, 0.45815918, 0.07124019, -0.17806059, 0.27645516, -0.10269561, -0.07879028, 0.49288797, 0.076767564, 0.07065983, 0.45742586, -0.22363223, -0.072954126, 0.45773304, 0.22239146, -0.1699248, 0.45699227, -0.16241696, 0.19887201, 0.24615772, 0.017802844, -0.019799724, 0.24656592, 0.19817527, 0.06900931, 0.49229953, -0.085787825, 0.15328182, 0.4571943, 0.17584857, 0.1084745, 0.25357494, -0.17091556, 0.16982552, 0.45796248, -0.16427399, -0.22253224, 0.45699212, -0.0723054, -0.200927, 0.25367782, -0.012299136, 0.16946885, 0.24558076, 0.10882353, -0.16381484, 0.4577376, 0.16934806, 0.069107674, 0.49247047, 0.08387836, -0.110315286, 0.24618985, 0.16860105, -0.06381765, 0.4925631, -0.085971475, 0.010327197, 0.25326964, -0.20161496, -0.09435995, 0.24735989, -0.17654075, 0.07109497, 0.45795295, 0.22295547, -0.06586348, 0.45837796, -0.22607411, -0.16133152, 0.24754813, -0.11657543, 0.2227518, 0.41233122, -0.04266647)
 
-[node name="MainMap" type="Node3D"]
-script = ExtResource("1_ujqxa")
+[node name="FinalScene" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_nfd1w")
+environment = ExtResource("2_wendm")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.8847449, 0.37101313, -0.28209183, -0.30400297, 0.9181556, 0.25411126, 0.3532828, -0.13906687, 0.9251225, -331.30396, 1742.4114, 0.63162994)
@@ -363,15 +350,7 @@ light_specular = 0.2
 directional_shadow_mode = 0
 sky_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("4_tvgjd")]
-unique_name_in_owner = true
-transform = Transform3D(0.849526, 0, 0, 0, 0.849526, 0, 0, 0, 0.849526, 0.287879, -2.7557428, 3.2130296)
-
-[node name="PlayerCamera" parent="Player" index="2"]
-environment = ExtResource("1_nfd1w")
-current = true
-
-[node name="FireVFX" parent="." instance=ExtResource("1_1vevx")]
+[node name="FireVFX" parent="." instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0176184, 0.4549203)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="FireVFX"]
@@ -389,31 +368,17 @@ omni_range = 25.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="TaskList" parent="CanvasLayer" instance=ExtResource("6_4yy1u")]
-unique_name_in_owner = true
+[node name="WinScreen" parent="CanvasLayer" instance=ExtResource("3_cgfx3")]
 
-[node name="Vignette" parent="CanvasLayer" instance=ExtResource("7_eiwau")]
-unique_name_in_owner = true
-
-[node name="FuelBar" parent="CanvasLayer" instance=ExtResource("8_mhlh8")]
-unique_name_in_owner = true
-
-[node name="Crosshair" parent="CanvasLayer" instance=ExtResource("9_up1bk")]
-
-[node name="PromptHUD" parent="CanvasLayer" instance=ExtResource("10_abex8")]
-unique_name_in_owner = true
-
-[node name="Campfire" parent="." instance=ExtResource("10_4yy1u")]
+[node name="Campfire" parent="." instance=ExtResource("10_rkm2e")]
 unique_name_in_owner = true
 transform = Transform3D(1.9316368, 0, 0, 0, 1.9316368, 0, 0, 0, 1.9316368, -0.02905035, -2.482548, 0.31682658)
-fuel_drain_speed = 2.5
-wood_needed = 5
-fires_needed = 6
+script = null
 
-[node name="Map3_Final-fix" parent="." instance=ExtResource("5_nfd1w")]
+[node name="Map3_Final-fix" parent="." instance=ExtResource("11_mgfk4")]
 
 [node name="Cube_014" parent="Map3_Final-fix" index="0"]
-transform = Transform3D(11.753472, 1.8155603, -4.19767, -0.3812241, 2.1450925, 11.7309475, 7.933813, -2.586571, 6.782275, 532.992, 684.04016, -787.282)
+transform = Transform3D(6.033252, 3.2814486, -4.0369005, 3.8326097, 0.68586016, 13.418526, 12.253398, -1.8302237, -2.2093754, 4508.8203, 953.218, -1559.7808)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map3_Final-fix/Plane_113" index="0"]
 
@@ -998,12 +963,6 @@ visible = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map3_Final-fix/Circle/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_up1bk")
 
-[node name="Wood" parent="Map3_Final-fix/Circle/StaticBody3D" instance=ExtResource("12_abex8")]
-transform = Transform3D(2.4734585, 0, 0, 0, 1.8139464, 0, 0, 0, 2.4734585, 224.83864, 2.4569492, 0.61035013)
-
-[node name="Wood2" parent="Map3_Final-fix/Circle/StaticBody3D" instance=ExtResource("11_eiwau")]
-transform = Transform3D(2.4734585, 0, 0, 0, 1.8139464, 0, 0, 0, 2.4734585, -76.981445, 2.1643412, 139.60358)
-
 [node name="Cube" parent="Map3_Final-fix" index="34"]
 transform = Transform3D(0.4042922, 0, 0, 0, 0.5512842, 0, 0, 0, 0.4042922, -39.538258, 22.014713, -124.0639)
 
@@ -1012,30 +971,32 @@ transform = Transform3D(0.4042922, 0, 0, 0, 0.5512842, 0, 0, 0, 0.4042922, -39.5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map3_Final-fix/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_abex8")
 
-[node name="Fire Bounds" parent="Map3_Final-fix/Cube/StaticBody3D" instance=ExtResource("12_8w7vt")]
+[node name="Fire Bounds" parent="Map3_Final-fix/Cube/StaticBody3D" instance=ExtResource("14_g6kgb")]
 transform = Transform3D(3.7911916, 0, -1.5488678, 0, 2.4524567, 0, 1.0287651, 0, 5.707867, 105.53039, -43.99588, 297.903)
+visible = true
+script = null
 
 [node name="OmniLight3D" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds" index="2"]
 transform = Transform3D(0.6296522, 0, 2.9802322e-08, 0, 0.7396447, 0, -2.2351742e-08, 0, 0.4182179, 0.061500072, 1.4314933, 0.15053499)
 light_energy = 5.0
 
 [node name="Node3D" type="Node3D" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds"]
-visible = false
 
-[node name="FireVFX" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, -8.940697e-08, 0, 1.0000001, 0, 0, 0, 1, 0.0137838125, 0.2484783, 0.12495816)
 
-[node name="Fire Bounds2" parent="Map3_Final-fix/Cube/StaticBody3D" instance=ExtResource("12_8w7vt")]
+[node name="Fire Bounds2" parent="Map3_Final-fix/Cube/StaticBody3D" instance=ExtResource("14_g6kgb")]
 transform = Transform3D(2.3096588, 0, 4.6846905, 0, 2.4524567, 0, -3.1775723, 0, 3.4051268, 88.64886, -43.99588, 301.6227)
+visible = true
+script = null
 
 [node name="OmniLight3D" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds2" index="2"]
 transform = Transform3D(0.62965226, 0, -5.9604645e-08, 0, 0.73964465, 0, -1.4901161e-08, 0, 0.42708594, -0.052562594, 1.2799168, -0.049050093)
 light_energy = 5.0
 
 [node name="Node3D" type="Node3D" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds2"]
-visible = false
 
-[node name="FireVFX" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds2/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds2/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, -8.940697e-08, 0, 1.0000001, 0, 0, 0, 1, 0.0137838125, 0.2484783, 0.12495816)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map3_Final-fix/Cube_001" index="0"]
@@ -1108,163 +1069,140 @@ shape = SubResource("ConvexPolygonShape3D_heckn")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Map3_Final-fix/Plane_118/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_4dw7y")
 
-[node name="Wood Group" type="Node3D" parent="."]
-
-[node name="Wood" parent="Wood Group" instance=ExtResource("11_eiwau")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.801933, 0.99520504, 79.54952)
-
-[node name="Wood2" parent="Wood Group" instance=ExtResource("11_eiwau")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.837376, 0.5045693, -26.04869)
-
-[node name="Wood4" parent="Wood Group" instance=ExtResource("12_mhlh8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.668342, -0.15046763, -72.078354)
-
-[node name="Wood3" parent="Wood Group" instance=ExtResource("11_eiwau")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.36572, -0.07465172, 97.73705)
-
-[node name="Wood6" parent="Wood Group" instance=ExtResource("12_mhlh8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3605874, -2.5354354, 0.05588834)
-
-[node name="Wood11" parent="Wood Group" instance=ExtResource("12_abex8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.900314, 0.041746855, 3.3151052)
-
 [node name="Border Group" type="Node3D" parent="."]
 
-[node name="Border" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321087e-07, 2.8187351, -4.064419, -3.5258255, -1.5411874e-07, 0, -9.258331e-08, 2.1180592, 5.408971, 71.74032, 1.4942765, 85.42374)
 
-[node name="Border2" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border2" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321085e-07, 2.9959893, 3.5671005, -3.5258255, -5.5883596e-08, -2.7561697e-07, -9.258332e-08, -1.8588954, 5.7491093, 71.389305, 1.4942763, 96.37405)
 
-[node name="Border3" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border3" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321085e-07, 2.957944, 3.6821625, -3.5258255, -5.2979587e-08, -2.7772077e-07, -9.258332e-08, -1.9188569, 5.6761026, 69.49043, 1.4942763, 97.55222)
 
-[node name="Border4" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border4" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321085e-07, 1.9607365, -1.0747898, -3.5258255, -1.4546544e-07, 1.867474e-08, -9.258333e-08, 2.9303505, 0.71915615, 70.485214, 1.4942763, 97.233734)
 
-[node name="Border6" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border6" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321084e-07, 1.9059321, -15.317795, -3.5258255, -1.4449395e-07, 2.7684248e-07, -9.258332e-08, 2.9662879, 9.84216, 50.532475, 1.494277, 101.82656)
 
-[node name="Border7" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border7" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321084e-07, -0.7416652, -13.752451, -3.5258255, -6.459419e-08, 5.582837e-07, -9.258332e-08, 3.4469368, -2.9590647, 22.624004, 1.494277, 108.367096)
 
-[node name="Border8" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border8" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321084e-07, 2.1975253, -4.3312793, -3.5258255, -1.491942e-07, 6.071152e-08, -9.2583306e-08, 2.7572308, 3.4520497, 4.493356, 1.494277, 108.81948)
 
-[node name="Border9" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border9" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321084e-07, -2.4936998, -13.516552, -3.5258255, 2.1691472e-08, 8.2742605e-07, -9.2583306e-08, 2.4925687, -13.522685, -79.432106, 12.541443, 78.58999)
 
-[node name="Border11" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border11" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321082e-07, -3.009919, -9.957524, -3.5258255, 5.696481e-08, 7.7656125e-07, -9.2583306e-08, 1.8362532, -16.322006, -101.2289, 12.541444, 51.638653)
 
-[node name="Border10" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border10" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321084e-07, 1.390271, -7.97702, -3.5258255, -1.3366534e-07, 1.8888221e-07, -9.2583306e-08, 3.240152, 3.4227471, -6.7656994, 1.494277, 115.11176)
 
-[node name="Border5" parent="Border Group" instance=ExtResource("13_up1bk")]
+[node name="Border5" parent="Border Group" instance=ExtResource("16_ai5c1")]
 transform = Transform3D(-1.2321085e-07, 1.9607365, -0.86401933, -3.5258255, -1.4546544e-07, 1.5012551e-08, -9.258333e-08, 2.9303505, 0.57812685, 66.79594, -3.234611, 91.48103)
 
-[node name="Ramp" parent="." instance=ExtResource("18_mreu3")]
+[node name="Ramp" parent="." instance=ExtResource("17_lsy5y")]
 transform = Transform3D(1.6990426, 0, 0, 0, 0.28174073, -0.4603703, 0, 0.14610916, 0.887727, 23.121445, -1.0247544, -68.05058)
 
-[node name="Ramp2" parent="." instance=ExtResource("18_mreu3")]
+[node name="Ramp2" parent="." instance=ExtResource("17_lsy5y")]
 transform = Transform3D(14.008248, 0.15350154, 0.019727005, -7.533492, 0.28542823, -0.011980533, -0.12530722, 0.00013380486, 2.9255772, 19.014013, 3.6717896, -85.495605)
 
-[node name="Ramp3" parent="." instance=ExtResource("18_mreu3")]
+[node name="Ramp3" parent="." instance=ExtResource("17_lsy5y")]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 10.699097, 6.989865, -85.46156)
-
-[node name="Lighter" parent="." instance=ExtResource("13_vq146")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74142987, -2.0863087, -4.166257)
-
-[node name="GasCan" parent="." instance=ExtResource("14_mreu3")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.921273, -2.1226544, 0.14651933)
-
-[node name="Backpack" parent="." instance=ExtResource("15_8w7vt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3075824, -2.2547445, -2.7596984)
 
 [node name="Fire Bounds Group" type="Node3D" parent="."]
 
-[node name="Fire Bounds" parent="Fire Bounds Group" instance=ExtResource("12_8w7vt")]
+[node name="Fire Bounds" parent="Fire Bounds Group" instance=ExtResource("14_g6kgb")]
 transform = Transform3D(16.216724, 0, -4.5474735e-13, 0, 16.57304, 0, 9.094947e-13, 0, 16.24938, 17.24311, -1.9735581, -76.200165)
+visible = true
+script = null
 
 [node name="OmniLight3D" parent="Fire Bounds Group/Fire Bounds" index="2"]
 transform = Transform3D(0.061664734, 0, -1.7326698e-15, 0, 0.060338955, 0, 2.1175824e-22, 0, 0.06154081, 0, 0.785674, 0)
 light_energy = 16.0
+omni_attenuation = 0.75
 
 [node name="Node3D" type="Node3D" parent="Fire Bounds Group/Fire Bounds"]
-visible = false
 
-[node name="FireVFX2" parent="Fire Bounds Group/Fire Bounds/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX2" parent="Fire Bounds Group/Fire Bounds/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, -3.8963516e-20, 0, 0.9999986, 0, 7.792703e-20, 0, 1, -0.2657743, -0.07711441, 0.43747187)
 
-[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, -8.4703295e-21, 0, 0.9999997, 0, 1.6940659e-20, 0, 1, 0, 0.07135634, 0)
 
-[node name="FireVFX3" parent="Fire Bounds Group/Fire Bounds/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX3" parent="Fire Bounds Group/Fire Bounds/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, -5.2516043e-20, 0, 0.99999857, 0, 1.05032085e-19, 0, 1, 0.42831314, -0.1329642, 0.36153936)
 
-[node name="FireVFX4" parent="Fire Bounds Group/Fire Bounds/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX4" parent="Fire Bounds Group/Fire Bounds/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, -6.4374504e-20, 0, 0.99999857, 0, 1.1519648e-19, 0, 1, 0.14813864, -0.15888223, -0.5380659)
 
-[node name="FireVFX5" parent="Fire Bounds Group/Fire Bounds/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX5" parent="Fire Bounds Group/Fire Bounds/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, -6.4374504e-20, 0, 0.99999857, 0, 1.1519648e-19, 0, 1, -0.50653684, -0.15888223, -0.20473576)
 
-[node name="Fire Bounds2" parent="Fire Bounds Group" instance=ExtResource("12_8w7vt")]
+[node name="Fire Bounds2" parent="Fire Bounds Group" instance=ExtResource("14_g6kgb")]
 transform = Transform3D(49.67188, 0, 27.739561, 0, 13.69271, 0, -14.9423485, 0, 87.49489, 90.05745, -1.9735581, -1.7913818)
+visible = true
+script = null
 
 [node name="OmniLight3D" parent="Fire Bounds Group/Fire Bounds2" index="2"]
 light_energy = 16.0
-omni_attenuation = 0.85
+omni_attenuation = 0.35
 
 [node name="Node3D" type="Node3D" parent="Fire Bounds Group/Fire Bounds2"]
-visible = false
 
-[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds2/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds2/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1, -0.14058101, 0.29061013, -0.27241078)
 
-[node name="FireVFX2" parent="Fire Bounds Group/Fire Bounds2/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX2" parent="Fire Bounds Group/Fire Bounds2/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1, 0.056441665, 0.16488947, 0.05251819)
 
-[node name="FireVFX3" parent="Fire Bounds Group/Fire Bounds2/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX3" parent="Fire Bounds Group/Fire Bounds2/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1, -0.17228663, 0.29053923, 0.26958507)
 
-[node name="Fire Bounds3" parent="Fire Bounds Group" instance=ExtResource("12_8w7vt")]
+[node name="Fire Bounds3" parent="Fire Bounds Group" instance=ExtResource("14_g6kgb")]
 transform = Transform3D(65.263084, 0, 74.96109, 0, 29.393843, 0, -41.2161, 0, 112.62327, -54.687256, -9.203587, 34.544586)
+visible = true
+script = null
 
 [node name="OmniLight3D" parent="Fire Bounds Group/Fire Bounds3" index="2"]
 light_energy = 16.0
-omni_attenuation = 0.8
+omni_attenuation = 0.25
 
 [node name="Node3D" type="Node3D" parent="Fire Bounds Group/Fire Bounds3"]
-visible = false
 
-[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1, 0.24825972, 0.2917074, 0.25364965)
 
-[node name="FireVFX2" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX2" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1, -0.3869971, 0.06345245, 0.38647646)
 
-[node name="FireVFX3" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX3" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1, -0.33060455, 0.4352393, -0.41116178)
 
-[node name="FireVFX4" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX4" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1, 0.11593014, -0.2007502, -0.42239434)
 
-[node name="Fire Bounds4" parent="Fire Bounds Group" instance=ExtResource("12_8w7vt")]
+[node name="Fire Bounds4" parent="Fire Bounds Group" instance=ExtResource("14_g6kgb")]
 transform = Transform3D(3.655718, 0, -2.8070495, 0, 4.665047, 0, 2.650677, 0, 3.8713813, 59.828815, 0.25813603, 79.21447)
 visible = true
+script = null
 
 [node name="OmniLight3D" parent="Fire Bounds Group/Fire Bounds4" index="2"]
 omni_attenuation = 0.85
 
 [node name="Node3D" type="Node3D" parent="Fire Bounds Group/Fire Bounds4"]
-visible = false
 
-[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds4/Node3D" instance=ExtResource("1_1vevx")]
+[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds4/Node3D" instance=ExtResource("4_1rq2m")]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999997, 0, 5.9604645e-08, 0, 1, 0, -1.0058284e-07, 0)
 
-[editable path="Player"]
+[node name="Camera3D2" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.93014956, 0.095911846, -0.35443297, -0.035361703, 0.9841938, 0.17352837, 0.36547416, -0.14887397, 0.9188391, -19.170647, 46.957455, 110.93654)
+fov = 85.0
+
 [editable path="Map3_Final-fix"]
 [editable path="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds"]
 [editable path="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds2"]

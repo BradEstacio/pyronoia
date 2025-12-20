@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://mdgku5nypkga"]
+
+[ext_resource type="PackedScene" uid="uid://csvc6q84p6tj5" path="res://Scenes/title_scene.tscn" id="1_gl6ei"]
+[ext_resource type="PackedScene" uid="uid://eox65ry3c1mt" path="res://Scenes/Screens/lose_screen.tscn" id="2_gl6ei"]
+
+[node name="LoseScene" type="Node3D"]
+
+[node name="TitleScene" parent="." instance=ExtResource("1_gl6ei")]
+
+[node name="Camera3D" parent="TitleScene" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 398.63065, 409.77863, -170.43698)
+
+[node name="Cube_014" parent="TitleScene/Map" index="0"]
+transform = Transform3D(13.823198, 0.05635398, 3.1796436, -3.1851187, 0.3575617, 13.759585, -0.09465102, -3.8022368, 1.3410759, 404.76245, 441.33548, -659.27216)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="LoseScreen" parent="CanvasLayer" instance=ExtResource("2_gl6ei")]
+
+[editable path="TitleScene"]
+[editable path="TitleScene/Map"]

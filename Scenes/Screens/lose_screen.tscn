@@ -1,9 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://eox65ry3c1mt"]
+[gd_scene load_steps=9 format=3 uid="uid://eox65ry3c1mt"]
 
 [ext_resource type="Script" uid="uid://ceduf7f23ebdu" path="res://Scripts/lose_screen.gd" id="1_uglf1"]
 [ext_resource type="FontFile" uid="uid://cdwvktswtdgrk" path="res://Assets/Fonts/Jinky/JINKY.ttf" id="2_mef22"]
+[ext_resource type="Texture2D" uid="uid://bfv80pdtpedl1" path="res://Assets/pyronoia_vignette2_2.png" id="2_nr087"]
+[ext_resource type="Texture2D" uid="uid://bvoatukvlb00r" path="res://Assets/Sprites/WoodUI/wood3_dark.png" id="4_3kcrb"]
+[ext_resource type="Texture2D" uid="uid://b7ht12f85lgl" path="res://Assets/Sprites/WoodUI/wood3_light.png" id="5_dy6b4"]
+[ext_resource type="Texture2D" uid="uid://utta21b4uyf4" path="res://Assets/Sprites/WoodUI/wood2_dark.png" id="6_4pbf8"]
+[ext_resource type="Texture2D" uid="uid://xkyvvuwu5h52" path="res://Assets/Sprites/WoodUI/wood2_light.png" id="7_jhapq"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1n1m7"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qc8b6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nr087")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="LoseScreen" type="Control"]
 layout_mode = 3
@@ -14,76 +28,81 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uglf1")
 
-[node name="PlaceholderBG" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 960.0
-offset_bottom = 540.0
-color = Color(0.23137255, 0.26666668, 0.29411766, 1)
+[node name="AnimatedVignette" type="AnimatedSprite2D" parent="."]
+position = Vector2(480, 270)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_qc8b6")
+speed_scale = 0.25
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 15.0
-offset_right = 750.0
-offset_bottom = 246.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -397.5
+offset_right = 397.5
+offset_bottom = 231.0
+grow_horizontal = 2
 theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
 theme_override_fonts/font = ExtResource("2_mef22")
-theme_override_font_sizes/font_size = 200
-text = "You Lose..."
+theme_override_font_sizes/font_size = 125
+text = "you descended into madness"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Restart" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 250.0
-offset_right = 560.0
-offset_bottom = 325.0
-texture_normal = SubResource("PlaceholderTexture2D_1n1m7")
-
-[node name="ColorRect" type="ColorRect" parent="Restart"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
-mouse_filter = 2
-color = Color(0.64705884, 0.16470589, 0.16470589, 1)
+offset_left = 350.0
+offset_top = 275.0
+offset_right = 811.0
+offset_bottom = 405.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_3kcrb")
+texture_pressed = ExtResource("5_dy6b4")
+texture_hover = ExtResource("5_dy6b4")
 
 [node name="Label" type="Label" parent="Restart"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -5.0
+offset_right = -16.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
 theme_override_fonts/font = ExtResource("2_mef22")
-theme_override_font_sizes/font_size = 55
+theme_override_font_sizes/font_size = 85
 text = "Try Again"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMenu" type="TextureButton" parent="."]
+[node name="Menu" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 350.0
-offset_right = 560.0
-offset_bottom = 425.0
-texture_normal = SubResource("PlaceholderTexture2D_1n1m7")
+offset_left = 350.0
+offset_top = 375.0
+offset_right = 811.0
+offset_bottom = 623.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_4pbf8")
+texture_pressed = ExtResource("7_jhapq")
+texture_hover = ExtResource("7_jhapq")
 
-[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+[node name="Label" type="Label" parent="Menu"]
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
-mouse_filter = 2
-color = Color(0.64705884, 0.16470589, 0.16470589, 1)
-
-[node name="Label" type="Label" parent="MainMenu"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
+offset_left = 75.0
+offset_top = 12.5
+offset_right = 345.0
+offset_bottom = 152.5
+rotation = 0.2617994
 theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
 theme_override_fonts/font = ExtResource("2_mef22")
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 120
 text = "Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_main_menu_pressed"]

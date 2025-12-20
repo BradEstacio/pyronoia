@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3t8w0nfj5bdd"]
+[gd_scene load_steps=5 format=3 uid="uid://d3t8w0nfj5bdd"]
 
 [ext_resource type="Script" uid="uid://b2jwgporrwtsm" path="res://Scripts/pickupable.gd" id="1_m2atp"]
 [ext_resource type="Texture2D" uid="uid://cty4dxkoakieh" path="res://Assets/Sprites/backpack.png" id="2_0up56"]
-[ext_resource type="AudioStream" uid="uid://dunytfy3voq5l" path="res://Assets/SFX/352118__inspectorj__dropping-wood-j.wav" id="5_oqwdo"]
-[ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="6_fahoc"]
+[ext_resource type="AudioStream" uid="uid://bqd7twtbferxo" path="res://Assets/SFX/205522__everheat__backpack3.wav" id="3_r4lpp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]
 
@@ -31,7 +30,11 @@ shape = SubResource("SphereShape3D_8v6no")
 
 [node name="PickUp" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-stream = ExtResource("5_oqwdo")
+stream = ExtResource("3_r4lpp")
+volume_db = -5.0
 
 [node name="DropOffWood" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("6_fahoc")
+stream = ExtResource("3_r4lpp")
+volume_db = -5.0
+pitch_scale = 0.8
+max_distance = 10.0

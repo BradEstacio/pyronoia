@@ -351,6 +351,11 @@ points = PackedVector3Array(0.048014313, 0.41210562, 0.22149715, -0.057669707, 0
 [node name="MainMap" type="Node3D"]
 script = ExtResource("1_ujqxa")
 
+[node name="FinalCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.96629536, -0.008941389, -0.2572808, -0.03200794, 0.987469, -0.15453336, 0.25543854, 0.1575599, 0.9539005, -0.13995361, -0.87454337, 4.1453853)
+visible = false
+fov = 85.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_nfd1w")
 
@@ -1015,28 +1020,8 @@ shape = SubResource("ConcavePolygonShape3D_abex8")
 [node name="Fire Bounds" parent="Map3_Final-fix/Cube/StaticBody3D" instance=ExtResource("12_8w7vt")]
 transform = Transform3D(3.7911916, 0, -1.5488678, 0, 2.4524567, 0, 1.0287651, 0, 5.707867, 105.53039, -43.99588, 297.903)
 
-[node name="OmniLight3D" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds" index="2"]
-transform = Transform3D(0.6296522, 0, 2.9802322e-08, 0, 0.7396447, 0, -2.2351742e-08, 0, 0.4182179, 0.061500072, 1.4314933, 0.15053499)
-light_energy = 5.0
-
-[node name="Node3D" type="Node3D" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds"]
-visible = false
-
-[node name="FireVFX" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds/Node3D" instance=ExtResource("1_1vevx")]
-transform = Transform3D(1, 0, -8.940697e-08, 0, 1.0000001, 0, 0, 0, 1, 0.0137838125, 0.2484783, 0.12495816)
-
 [node name="Fire Bounds2" parent="Map3_Final-fix/Cube/StaticBody3D" instance=ExtResource("12_8w7vt")]
 transform = Transform3D(2.3096588, 0, 4.6846905, 0, 2.4524567, 0, -3.1775723, 0, 3.4051268, 88.64886, -43.99588, 301.6227)
-
-[node name="OmniLight3D" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds2" index="2"]
-transform = Transform3D(0.62965226, 0, -5.9604645e-08, 0, 0.73964465, 0, -1.4901161e-08, 0, 0.42708594, -0.052562594, 1.2799168, -0.049050093)
-light_energy = 5.0
-
-[node name="Node3D" type="Node3D" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds2"]
-visible = false
-
-[node name="FireVFX" parent="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds2/Node3D" instance=ExtResource("1_1vevx")]
-transform = Transform3D(1, 0, -8.940697e-08, 0, 1.0000001, 0, 0, 0, 1, 0.0137838125, 0.2484783, 0.12495816)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map3_Final-fix/Cube_001" index="0"]
 
@@ -1113,17 +1098,32 @@ shape = SubResource("ConvexPolygonShape3D_4dw7y")
 [node name="Wood" parent="Wood Group" instance=ExtResource("11_eiwau")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.801933, 0.99520504, 79.54952)
 
-[node name="Wood2" parent="Wood Group" instance=ExtResource("11_eiwau")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.837376, 0.5045693, -26.04869)
+[node name="Wood5" parent="Wood Group" instance=ExtResource("11_eiwau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.608902, 0.18523294, 82.04417)
 
-[node name="Wood4" parent="Wood Group" instance=ExtResource("12_mhlh8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.668342, -0.15046763, -72.078354)
+[node name="Wood2" parent="Wood Group" instance=ExtResource("12_mhlh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.280717, 7.8207407, -72.078354)
 
 [node name="Wood3" parent="Wood Group" instance=ExtResource("11_eiwau")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.36572, -0.07465172, 97.73705)
 
+[node name="Wood4" parent="Wood Group" instance=ExtResource("12_mhlh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.639089, -1.6690283, -65.19162)
+
 [node name="Wood6" parent="Wood Group" instance=ExtResource("12_mhlh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3605874, -2.5354354, 0.05588834)
+
+[node name="Wood7" parent="Wood Group" instance=ExtResource("12_mhlh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.360587, -2.5354354, 0.05588834)
+
+[node name="Wood8" parent="Wood Group" instance=ExtResource("12_mhlh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.360587, -2.5354354, 1.0558883)
+
+[node name="Wood9" parent="Wood Group" instance=ExtResource("12_mhlh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.360587, -2.5354354, 1.0558883)
+
+[node name="Wood10" parent="Wood Group" instance=ExtResource("12_mhlh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.360587, -2.5354354, 0.05588834)
 
 [node name="Wood11" parent="Wood Group" instance=ExtResource("12_abex8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.900314, 0.041746855, 3.3151052)
@@ -1188,10 +1188,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3075824, -2.2547445, -2.759
 [node name="Fire Bounds" parent="Fire Bounds Group" instance=ExtResource("12_8w7vt")]
 transform = Transform3D(16.216724, 0, -4.5474735e-13, 0, 16.57304, 0, 9.094947e-13, 0, 16.24938, 17.24311, -1.9735581, -76.200165)
 
-[node name="OmniLight3D" parent="Fire Bounds Group/Fire Bounds" index="2"]
-transform = Transform3D(0.061664734, 0, -1.7326698e-15, 0, 0.060338955, 0, 2.1175824e-22, 0, 0.06154081, 0, 0.785674, 0)
-light_energy = 16.0
-
 [node name="Node3D" type="Node3D" parent="Fire Bounds Group/Fire Bounds"]
 visible = false
 
@@ -1213,62 +1209,12 @@ transform = Transform3D(1, 0, -6.4374504e-20, 0, 0.99999857, 0, 1.1519648e-19, 0
 [node name="Fire Bounds2" parent="Fire Bounds Group" instance=ExtResource("12_8w7vt")]
 transform = Transform3D(49.67188, 0, 27.739561, 0, 13.69271, 0, -14.9423485, 0, 87.49489, 90.05745, -1.9735581, -1.7913818)
 
-[node name="OmniLight3D" parent="Fire Bounds Group/Fire Bounds2" index="2"]
-light_energy = 16.0
-omni_attenuation = 0.85
-
-[node name="Node3D" type="Node3D" parent="Fire Bounds Group/Fire Bounds2"]
-visible = false
-
-[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds2/Node3D" instance=ExtResource("1_1vevx")]
-transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1, -0.14058101, 0.29061013, -0.27241078)
-
-[node name="FireVFX2" parent="Fire Bounds Group/Fire Bounds2/Node3D" instance=ExtResource("1_1vevx")]
-transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1, 0.056441665, 0.16488947, 0.05251819)
-
-[node name="FireVFX3" parent="Fire Bounds Group/Fire Bounds2/Node3D" instance=ExtResource("1_1vevx")]
-transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1, -0.17228663, 0.29053923, 0.26958507)
-
 [node name="Fire Bounds3" parent="Fire Bounds Group" instance=ExtResource("12_8w7vt")]
 transform = Transform3D(65.263084, 0, 74.96109, 0, 29.393843, 0, -41.2161, 0, 112.62327, -54.687256, -9.203587, 34.544586)
 
-[node name="OmniLight3D" parent="Fire Bounds Group/Fire Bounds3" index="2"]
-light_energy = 16.0
-omni_attenuation = 0.8
-
-[node name="Node3D" type="Node3D" parent="Fire Bounds Group/Fire Bounds3"]
-visible = false
-
-[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("1_1vevx")]
-transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1, 0.24825972, 0.2917074, 0.25364965)
-
-[node name="FireVFX2" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("1_1vevx")]
-transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1, -0.3869971, 0.06345245, 0.38647646)
-
-[node name="FireVFX3" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("1_1vevx")]
-transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1, -0.33060455, 0.4352393, -0.41116178)
-
-[node name="FireVFX4" parent="Fire Bounds Group/Fire Bounds3/Node3D" instance=ExtResource("1_1vevx")]
-transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1, 0.11593014, -0.2007502, -0.42239434)
-
 [node name="Fire Bounds4" parent="Fire Bounds Group" instance=ExtResource("12_8w7vt")]
 transform = Transform3D(3.655718, 0, -2.8070495, 0, 4.665047, 0, 2.650677, 0, 3.8713813, 59.828815, 0.25813603, 79.21447)
-visible = true
-
-[node name="OmniLight3D" parent="Fire Bounds Group/Fire Bounds4" index="2"]
-omni_attenuation = 0.85
-
-[node name="Node3D" type="Node3D" parent="Fire Bounds Group/Fire Bounds4"]
-visible = false
-
-[node name="FireVFX" parent="Fire Bounds Group/Fire Bounds4/Node3D" instance=ExtResource("1_1vevx")]
-transform = Transform3D(0.9999999, 0, 0, 0, 0.9999997, 0, 5.9604645e-08, 0, 1, 0, -1.0058284e-07, 0)
 
 [editable path="Player"]
 [editable path="Map3_Final-fix"]
-[editable path="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds"]
-[editable path="Map3_Final-fix/Cube/StaticBody3D/Fire Bounds2"]
 [editable path="Fire Bounds Group/Fire Bounds"]
-[editable path="Fire Bounds Group/Fire Bounds2"]
-[editable path="Fire Bounds Group/Fire Bounds3"]
-[editable path="Fire Bounds Group/Fire Bounds4"]

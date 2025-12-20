@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2jwgporrwtsm" path="res://Scripts/pickupable.gd" id="1_0p2mx"]
 [ext_resource type="Texture2D" uid="uid://dvbsoutwtl4my" path="res://Assets/Sprites/lighter.png" id="2_feaoe"]
-[ext_resource type="AudioStream" uid="uid://dunytfy3voq5l" path="res://Assets/SFX/352118__inspectorj__dropping-wood-j.wav" id="5_8cp4p"]
+[ext_resource type="AudioStream" uid="uid://qb48crrj374x" path="res://Assets/SFX/319798__zmobie__zippo-lighter-1-lighting.wav" id="3_feaoe"]
 [ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="6_2eu46"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]
@@ -31,7 +31,10 @@ shape = SubResource("SphereShape3D_8v6no")
 
 [node name="PickUp" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-stream = ExtResource("5_8cp4p")
+stream = ExtResource("3_feaoe")
+volume_db = -7.5
+max_distance = 4096.0
 
 [node name="DropOffWood" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_2eu46")
+max_distance = 4096.0

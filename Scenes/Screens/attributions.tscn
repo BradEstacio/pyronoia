@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctidra7g05yda"]
+
+[ext_resource type="Texture2D" uid="uid://utta21b4uyf4" path="res://Assets/Sprites/WoodUI/wood2_dark.png" id="1_horqk"]
+[ext_resource type="Script" uid="uid://cgt8cf8y6hfmp" path="res://Scenes/Screens/attributions.gd" id="1_uwu2o"]
+[ext_resource type="Texture2D" uid="uid://xkyvvuwu5h52" path="res://Assets/Sprites/WoodUI/wood2_light.png" id="2_uwu2o"]
+[ext_resource type="FontFile" uid="uid://cdwvktswtdgrk" path="res://Assets/Fonts/Jinky/JINKY.ttf" id="3_2aph7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwu2o"]
+bg_color = Color(0.23137255, 0.26666668, 0.29411766, 0.7058824)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Attributions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwu2o")
+
+[node name="Pickup" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.6862745)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -465.0
+offset_top = -391.5
+offset_right = 405.0
+offset_bottom = -6.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uwu2o")
+
+[node name="Attributions" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 404.0
+offset_bottom = 173.0
+theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
+theme_override_fonts/font = ExtResource("3_2aph7")
+theme_override_font_sizes/font_size = 150
+text = "Attributions - SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 400.0
+offset_right = 1111.0
+offset_bottom = 648.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_horqk")
+texture_pressed = ExtResource("2_uwu2o")
+texture_hover = ExtResource("2_uwu2o")
+
+[node name="Label" type="Label" parent="Back"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 30.0
+offset_right = 325.0
+offset_bottom = 169.0
+rotation = 0.2617994
+theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
+theme_override_fonts/font = ExtResource("3_2aph7")
+theme_override_font_sizes/font_size = 120
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attribution Lists" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 150.0
+offset_right = 875.0
+offset_bottom = 527.0
+theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_2aph7")
+theme_override_font_sizes/font_size = 25
+text = "Fire.wav by danielpodlovics -- https://freesound.org/s/530355/ -- License: Creative Commons 0
+Dropping Wood J.wav by InspectorJ -- https://freesound.org/s/352118/ -- License: Attribution 4.0
+Campfire Crackle 3 by rbirdwise -- https://freesound.org/s/157187/ -- License: Attribution 3.0
+Campfire deer camp - adding kindling - med wind - part 4.wav by Ambient-X -- https://freesound.org/s/660298/ -- License: Creative Commons 0
+Silent forest by ZHRO -- https://freesound.org/s/753418/ -- License: Creative Commons 0
+whispers and screams by Fyodore -- https://freesound.org/s/211872/ -- License: Creative Commons 0
+Zippo Lighter Sound Pack by zmobie -- https://freesound.org/people/zmobie/packs/17908/ -- License: Creative Commons 0
+Leaves03.wav by punpcklbw -- https://freesound.org/s/195006/ -- License: Attribution 3.0
+scribble by MasterSuite -- https://freesound.org/s/667399/ -- License: Creative Commons 0
+opening gas canister.wav by 21100495 -- https://freesound.org/s/655369/ -- License: Creative Commons 0
+Heartbeats 61.wav by patobottos -- https://freesound.org/s/369017/ -- License: Creative Commons 0
+heartbeat-100bpm-limited.wav by loudernoises -- https://freesound.org/s/332809/ -- License: Creative Commons 0
+Backpack3.wav by EverHeat -- https://freesound.org/s/205522/ -- License: Attribution 3.0"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -137,7 +137,7 @@ func get_looked_at_object(max_distance := 100.0) -> Node3D:
 
 func _ready() -> void:
 	camera = $PlayerCamera
-	campfire = get_tree().root.get_node("Map/Campfire") as Campfire
+	campfire = %Campfire as Campfire
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
@@ -185,8 +185,10 @@ func _process(_delta: float) -> void:
 				if node.get_node("OmniLight3D"):
 					node.get_node("OmniLight3D").hide()
 				if "Fire Item" in node.get_groups():
-					campfire.get_fire_item()
-					node.queue_free()
+					var fire_item := node as Pickupable
+					if fire_item.active:
+						campfire.get_fire_item()
+						node.queue_free()
 				elif "Burnable" in node.get_groups():
 					# TO DO: Burn Object/ add fire effect; currently adds fire sprite
 					var burnable_item = node as Burnable

@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cty4dxkoakieh"
-path.s3tc="res://.godot/imported/backpack.png-be2d3444ebc317c73c8555eb1f07ec72.s3tc.ctex"
+uid="uid://denr7htb03a0y"
+path.s3tc="res://.godot/imported/Map3_Final_Texture base.png-60670df70947774d043b868338bb690e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "edeaff3963818a347b25535841d030be"
+}
 
 [deps]
 
-source_file="res://Assets/Sprites/backpack.png"
-dest_files=["res://.godot/imported/backpack.png-be2d3444ebc317c73c8555eb1f07ec72.s3tc.ctex"]
+source_file="res://Assets/Map3_Final_Texture base.png"
+dest_files=["res://.godot/imported/Map3_Final_Texture base.png-60670df70947774d043b868338bb690e.s3tc.ctex"]
 
 [params]
 

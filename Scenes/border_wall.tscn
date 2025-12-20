@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://5hec2lxqlg8s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fnun3"]
+albedo_color = Color(0.38, 0, 0, 0.47058824)
+metallic_specular = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r8t2q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s46f0"]
+
+[node name="Border" type="Node3D"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="PlaneMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_fnun3")
+mesh = SubResource("PlaneMesh_r8t2q")
+skeleton = NodePath("../PlaneStaticBody/PlaneCollider")
+
+[node name="PlaneMesh2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_fnun3")
+mesh = SubResource("PlaneMesh_r8t2q")
+skeleton = NodePath("../PlaneStaticBody/PlaneCollider")
+
+[node name="PlaneStaticBody" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 0.025, 0, 0, 0, 2, 0, -0.012, 0)
+
+[node name="PlaneCollider" type="CollisionShape3D" parent="PlaneStaticBody"]
+shape = SubResource("BoxShape3D_s46f0")

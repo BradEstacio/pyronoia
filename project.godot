@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pyronoia"
-run/main_scene="uid://bs1udunx5w15l"
+run/main_scene="uid://dey7mff7y0p61"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

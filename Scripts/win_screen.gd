@@ -6,7 +6,7 @@ func _ready() -> void:
 func _on_restart_pressed() -> void:
 	OpenButtonSfx.play()
 	await OpenButtonSfx.finished
-	get_tree().change_scene_to_file("res://Scenes/map.tscn")
+	get_tree().change_scene_to_file("res://Scenes/main_map.tscn")
 
 
 func _on_main_menu_pressed() -> void:

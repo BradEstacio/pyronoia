@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://48vx1iaq11sm"]
 
 [ext_resource type="Script" uid="uid://b2jwgporrwtsm" path="res://Scripts/pickupable.gd" id="1_x8fji"]
-[ext_resource type="Texture2D" uid="uid://b7rpidwphd2pa" path="res://Sprites/gas_canister.png" id="3_x8fji"]
+[ext_resource type="Texture2D" uid="uid://5ojwsgyak7bw" path="res://Assets/Sprites/gas_canister.png" id="2_hblcx"]
 [ext_resource type="AudioStream" uid="uid://dunytfy3voq5l" path="res://Assets/SFX/352118__inspectorj__dropping-wood-j.wav" id="5_k3ed1"]
 [ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="6_luyxx"]
 
@@ -20,7 +20,7 @@ cast_shadow = 0
 offset = Vector2(-89.48, 540)
 billboard = 2
 texture_filter = 0
-texture = ExtResource("3_x8fji")
+texture = ExtResource("2_hblcx")
 
 [node name="SpriteStaticBody" type="StaticBody3D" parent="." groups=["Sprite Collider"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

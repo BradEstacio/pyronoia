@@ -39,7 +39,7 @@ pitch_scale = 0.8
 stream = ExtResource("4_iqssn")
 volume_db = -15.0
 
-[node name="HoverLight" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
 visible = false
 light_color = Color(1, 1, 0, 1)
 light_energy = 2.5

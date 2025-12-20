@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cuq8oct2uyqkf"]
 
 [ext_resource type="Script" uid="uid://b2jwgporrwtsm" path="res://Scripts/pickupable.gd" id="1_0p2mx"]
-[ext_resource type="Texture2D" uid="uid://cn0wsvr7yf7a3" path="res://Sprites/Temporary/lighter TMP.png" id="2_ssd3n"]
+[ext_resource type="Texture2D" uid="uid://dvbsoutwtl4my" path="res://Assets/Sprites/lighter.png" id="2_feaoe"]
 [ext_resource type="AudioStream" uid="uid://dunytfy3voq5l" path="res://Assets/SFX/352118__inspectorj__dropping-wood-j.wav" id="5_8cp4p"]
 [ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="6_2eu46"]
 
@@ -15,12 +15,12 @@ holding_size = 0.005
 fuel_amount = 50.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.11169797, 0, 0, 0, 0.11169797, 0, 0, 0, 0.11169797, 0, 0, 0)
+transform = Transform3D(0.24788484, 0, 0, 0, 0.24788484, 0, 0, 0, 0.24788484, 0, 0.0124717355, 0)
 cast_shadow = 0
-offset = Vector2(0, 445)
+offset = Vector2(0, 540)
 billboard = 2
 texture_filter = 0
-texture = ExtResource("2_ssd3n")
+texture = ExtResource("2_feaoe")
 
 [node name="SpriteStaticBody" type="StaticBody3D" parent="." groups=["Sprite Collider"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

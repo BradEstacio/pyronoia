@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2q27maoaq61d"]
 
 [ext_resource type="Script" uid="uid://byr15wwts30cc" path="res://Scripts/campfire.gd" id="1_qcxes"]
-[ext_resource type="Texture2D" uid="uid://dwvf0x1cer0ja" path="res://Sprites/Temporary/fire pit tmp.jpg" id="2_a7vrp"]
+[ext_resource type="Texture2D" uid="uid://cprgmq8ws6i50" path="res://Assets/Sprites/campfire lit.png" id="2_qmjfc"]
 [ext_resource type="AudioStream" uid="uid://ciksxuejfno8l" path="res://Assets/SFX/9726__rbirdwise__campfire-crackling/157185__rbirdwise__campfire-crackle-1.wav" id="3_ftfgn"]
 [ext_resource type="AudioStream" uid="uid://bks46s3wkm577" path="res://Assets/SFX/530355__danielpodlovics__fire.wav" id="4_s4mwt"]
 [ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="5_s4mwt"]
@@ -16,10 +16,10 @@ script = ExtResource("1_qcxes")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.129, 0, 0, 0, 0.129, 0, 0, 0, 0.129, 0, 0, 0)
 cast_shadow = 0
-offset = Vector2(0, 391)
+offset = Vector2(0, 540)
 billboard = 2
 texture_filter = 0
-texture = ExtResource("2_a7vrp")
+texture = ExtResource("2_qmjfc")
 
 [node name="SpriteStaticBody" type="StaticBody3D" parent="." groups=["Sprite Collider"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

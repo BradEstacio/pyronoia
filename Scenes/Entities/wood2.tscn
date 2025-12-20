@@ -1,26 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://gra3ji62q65o"]
+[gd_scene load_steps=6 format=3 uid="uid://pr2xqvppgi30"]
 
-[ext_resource type="Script" uid="uid://b2jwgporrwtsm" path="res://Scripts/pickupable.gd" id="1_tfydv"]
-[ext_resource type="Texture2D" uid="uid://cty4ve3kyniwj" path="res://Assets/a-single-log-on-a-transparent-background-png.webp" id="3_43xxu"]
-[ext_resource type="AudioStream" uid="uid://dunytfy3voq5l" path="res://Assets/SFX/352118__inspectorj__dropping-wood-j.wav" id="3_bxtp4"]
-[ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="4_iqssn"]
+[ext_resource type="Script" uid="uid://b2jwgporrwtsm" path="res://Scripts/pickupable.gd" id="1_wk868"]
+[ext_resource type="Texture2D" uid="uid://buyhbqye15aly" path="res://Assets/Sprites/wood2.png" id="2_wk868"]
+[ext_resource type="AudioStream" uid="uid://dunytfy3voq5l" path="res://Assets/SFX/352118__inspectorj__dropping-wood-j.wav" id="3_1jx5e"]
+[ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="4_vpqyj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]
 
 [node name="Wood" type="Node3D" groups=["Interactable", "Item", "Wood"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045009673, 0.071951866, -0.004870653)
-script = ExtResource("1_tfydv")
+script = ExtResource("1_wk868")
 default_size = 0.01
 holding_size = 0.005
 fuel_amount = 50.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.063, 0, 0, 0, 0.063, 0, 0, 0, 0.063, 0, 0, 0)
+transform = Transform3D(0.2032746, 0, 0, 0, 0.2032746, 0, 0, 0, 0.2032746, 0.01963237, -0.12415397, 0.0477826)
 cast_shadow = 0
-offset = Vector2(0, 790)
+offset = Vector2(0, 540)
 billboard = 2
 texture_filter = 0
-texture = ExtResource("3_43xxu")
+texture = ExtResource("2_wk868")
 
 [node name="SpriteStaticBody" type="StaticBody3D" parent="." groups=["Sprite Collider"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -31,18 +31,24 @@ shape = SubResource("SphereShape3D_8v6no")
 
 [node name="PickUp" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-stream = ExtResource("3_bxtp4")
+stream = ExtResource("3_1jx5e")
 volume_db = -22.5
 pitch_scale = 0.8
 
 [node name="DropOffWood" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_iqssn")
+stream = ExtResource("4_vpqyj")
 volume_db = -15.0
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="HoverLight" type="OmniLight3D" parent="."]
 visible = false
 light_color = Color(1, 1, 0, 1)
 light_energy = 2.5
 light_indirect_energy = 0.0
-omni_range = 2.5
+omni_attenuation = 2.0
+
+[node name="GuideLight" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.40499997, 0.14999998, 1)
+light_energy = 2.5
+light_indirect_energy = 0.0
+omni_range = 10.0
 omni_attenuation = 2.0

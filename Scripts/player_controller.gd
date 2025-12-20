@@ -137,7 +137,7 @@ func get_looked_at_object(max_distance := 100.0) -> Node3D:
 
 func _ready() -> void:
 	camera = $PlayerCamera
-	campfire = get_tree().root.get_node("Map/Campfire") as Campfire
+	campfire = %Campfire as Campfire
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:

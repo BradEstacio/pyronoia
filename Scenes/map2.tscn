@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://dd3nwm25hka8f" path="res://Scenes/Entities/player.tscn" id="2_2aecq"]
 [ext_resource type="PackedScene" uid="uid://c2q27maoaq61d" path="res://Scenes/Entities/campfire.tscn" id="3_ietj0"]
-[ext_resource type="PackedScene" uid="uid://gra3ji62q65o" path="res://Scenes/Entities/wood.tscn" id="4_slxia"]
+[ext_resource type="PackedScene" uid="uid://gra3ji62q65o" path="res://Scenes/Entities/wood1.tscn" id="4_slxia"]
 [ext_resource type="AudioStream" uid="uid://dsth7fw3afvul" path="res://Assets/SFX/753418__zhr__silent-forest.wav" id="5_kkkch"]
 [ext_resource type="PackedScene" uid="uid://bxe4fmvovjpqt" path="res://Scenes/HUD/task_list.tscn" id="6_o03xv"]
 [ext_resource type="PackedScene" uid="uid://w5302lbqh8fb" path="res://Scenes/HUD/vignette.tscn" id="7_tr3nq"]
 [ext_resource type="PackedScene" uid="uid://bi7mfqi7cma2g" path="res://Scenes/HUD/fuel_bar.tscn" id="8_40gra"]
-[ext_resource type="PackedScene" uid="uid://csvc6q84p6tj5" path="res://Scenes/test_map.tscn" id="9_5yc7q"]
+[ext_resource type="PackedScene" uid="uid://csvc6q84p6tj5" path="res://Scenes/title_scene.tscn" id="9_5yc7q"]
 [ext_resource type="PackedScene" uid="uid://6vkuif0e1714" path="res://Scenes/HUD/crosshair.tscn" id="9_goh0q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wijl4"]

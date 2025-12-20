@@ -42,7 +42,7 @@ func drop_item(pos: Vector3) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite = get_node("Sprite3D")
-	map = get_tree().root.get_node("Map")
-	player = map.get_node("Player")
+	map = get_tree().root.get_node("MainMap")
+	player = %Player
 	pc = player as PlayerController
 	pickup_point = player.get_node("PlayerCamera/Hand/ItemCarryPoint")

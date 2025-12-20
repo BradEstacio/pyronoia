@@ -239,3 +239,8 @@ func _process(_delta: float) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	# Handle reset to main menu
+	if Input.is_action_just_pressed("reset_to_menu"):
+		
+			

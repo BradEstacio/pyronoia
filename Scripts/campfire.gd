@@ -79,7 +79,7 @@ func _process(delta: float) -> void:
 		var fuel_percent_offset = min(fuel_percent, 0.75)
 		progress_node.value = fuel_level
 		vignette_tween = create_tween()
-		vignette_tween.tween_property(%Vignette, "scale", Vector2(max(1 - (.5 * abs(0.75 - fuel_percent_offset)), 0.5), max(1 - (0.75 * abs(0.75 - fuel_percent_offset)), 0.5)), 0.1)
+		vignette_tween.tween_property(%Vignette, "scale", Vector2(max(1 - (0.75 * abs(0.75 - fuel_percent_offset)), 0.5), max(1 - (0.75 * abs(0.75 - fuel_percent_offset)), 0.5)), 0.1)
 		%Vignette.modulate.a = abs(1 - fuel_percent)
 		whispers.volume_db = -40.0 + (30 * abs(0.75 - fuel_percent_offset))
 		if fuel_level <= 0:

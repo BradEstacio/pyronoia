@@ -121,11 +121,12 @@ func _process(delta: float) -> void:
 			stage += 1
 			var burnables := get_tree().get_nodes_in_group("Burnable")
 			for object in burnables:
+				object.show()
 				var object_pickup := object as Burnable
 				object_pickup.active = true
 			TaskUpdate.pitch_scale = 1.25
 			TaskUpdate.play()
-			task_list_text.text = "-Its too late\n-Light everything on fire"
+			task_list_text.text = "-Its too late\n-Light everything on fire\n-Tents, Corn, LakeHouse, Deep Forest, Building"
 			# TO DO: add writing noise
 	elif stage == 3: # Light everything on fire
 		if cur_fires >= fires_needed:

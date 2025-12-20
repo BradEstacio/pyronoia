@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ksmotqsl26fr"]
+
+[ext_resource type="Script" uid="uid://ckimekwt6oofi" path="res://Scripts/burnable.gd" id="1_654tv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hml0l"]
+albedo_color = Color(1, 0.56666666, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_654tv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gu5sn"]
+
+[node name="Fire Bounds" type="Node3D" groups=["Burnable", "Interactable"]]
+visible = false
+script = ExtResource("1_654tv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_hml0l")
+mesh = SubResource("BoxMesh_654tv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_gu5sn")

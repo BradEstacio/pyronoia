@@ -9,4 +9,5 @@ func _on_start_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	OpenButtonSfx.play()
+	%UI.hide()
 	$CreditsScreen.show()

@@ -11,7 +11,7 @@ var rotation_y := 0.0
 
 
 @export var pickup_distance: float
-@export var fire_scene: PackedScene
+# @export var fire_scene: PackedScene
 
 var camera: Camera3D
 var campfire: Node3D
@@ -187,6 +187,8 @@ func _process(_delta: float) -> void:
 				if "Fire Item" in node.get_groups():
 					var fire_item := node as Pickupable
 					if fire_item.active:
+						fire_item.get_node("PickUp").play()
+						#await get_tree().create_timer(0.2).timeout
 						campfire.get_fire_item()
 						node.queue_free()
 				elif "Burnable" in node.get_groups():
@@ -194,12 +196,18 @@ func _process(_delta: float) -> void:
 					var burnable_item = node as Burnable
 					if burnable_item.active and not burnable_item.is_on_fire:
 						burnable_item.is_on_fire = true
-						var instance: Node3D = fire_scene.instantiate()
-						node.add_child(instance)
-						instance.global_position = node.global_position
+						if burnable_item.get_node("Node3D") and burnable_item.get_node("OmniLight3D"):
+							burnable_item.get_node("Node3D").show()
+							burnable_item.get_node("OmniLight3D").hide()
+							burnable_item.get_node("OmniLight3D").light_energy = 16.0
+							print(burnable_item.get_node("OmniLight3D").light_energy)
+							burnable_item.get_node("OmniLight3D").omni_attenuation = 0.5
+							print(burnable_item.get_node("OmniLight3D").omni_attenuation)
+							burnable_item.get_node("OmniLight3D").show()
 						campfire.light_fire()
 				elif not "Campfire" in node.get_groups():
 					var pickup := node as Pickupable
+					node.get_node("PickUp").play()
 					pickup.pick_up()
 		else: # Drop item or add to fire
 			var node := get_looked_at_object(pickup_distance)
@@ -211,6 +219,7 @@ func _process(_delta: float) -> void:
 					is_holding_item = false
 					held_item = null
 				elif "Campfire" in node.get_groups() and "Belonging" in held_item.get_groups():
+					held_item.get_node("DropOffWood").play()
 					campfire.add_belonging()
 					held_item.queue_free()
 					is_holding_item = false
@@ -228,6 +237,10 @@ func _process(_delta: float) -> void:
 	if last_looked_at_object and looked_at_object != last_looked_at_object:
 		if last_looked_at_object.get_node("OmniLight3D"):
 				last_looked_at_object.get_node("OmniLight3D").hide()
+		for child in %PromptHUD.get_children():
+			if child.visible:
+				child.hide()
+	if last_looked_at_object != looked_at_object:
 		for child in %PromptHUD.get_children():
 			if child.visible:
 				child.hide()

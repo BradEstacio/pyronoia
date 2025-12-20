@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://rana5sxnnj0i"]
+[gd_scene load_steps=7 format=3 uid="uid://rana5sxnnj0i"]
 
 [ext_resource type="Script" uid="uid://cc5wq7be1gjck" path="res://Scripts/win_screen.gd" id="1_wv5lq"]
 [ext_resource type="FontFile" uid="uid://cdwvktswtdgrk" path="res://Assets/Fonts/Jinky/JINKY.ttf" id="2_ag6kh"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s508f"]
+[ext_resource type="Texture2D" uid="uid://bvoatukvlb00r" path="res://Assets/Sprites/WoodUI/wood3_dark.png" id="3_bjd5l"]
+[ext_resource type="Texture2D" uid="uid://b7ht12f85lgl" path="res://Assets/Sprites/WoodUI/wood3_light.png" id="4_y7ptx"]
+[ext_resource type="Texture2D" uid="uid://utta21b4uyf4" path="res://Assets/Sprites/WoodUI/wood2_dark.png" id="5_wk6rn"]
+[ext_resource type="Texture2D" uid="uid://xkyvvuwu5h52" path="res://Assets/Sprites/WoodUI/wood2_light.png" id="6_64ewi"]
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -14,76 +16,78 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wv5lq")
 
-[node name="PlaceholderBG" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 960.0
-offset_bottom = 540.0
-color = Color(0.23137255, 0.26666668, 0.29411766, 1)
-
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 15.0
-offset_right = 750.0
-offset_bottom = 246.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -292.5
+offset_top = 20.0
+offset_right = 292.5
+offset_bottom = 236.0
+grow_horizontal = 2
 theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
 theme_override_fonts/font = ExtResource("2_ag6kh")
-theme_override_font_sizes/font_size = 200
-text = "You Win?"
+theme_override_font_sizes/font_size = 60
+text = "The forest burns.
+It has retreated.
+You think you are safe for now."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Restart" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 250.0
-offset_right = 560.0
-offset_bottom = 325.0
-texture_normal = SubResource("PlaceholderTexture2D_s508f")
-
-[node name="ColorRect" type="ColorRect" parent="Restart"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
-mouse_filter = 2
-color = Color(0.64705884, 0.16470589, 0.16470589, 1)
+offset_left = 350.0
+offset_top = 275.0
+offset_right = 811.0
+offset_bottom = 405.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_bjd5l")
+texture_pressed = ExtResource("4_y7ptx")
+texture_hover = ExtResource("4_y7ptx")
 
 [node name="Label" type="Label" parent="Restart"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -5.0
+offset_right = -16.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
 theme_override_fonts/font = ExtResource("2_ag6kh")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 85
 text = "Play Again"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMenu" type="TextureButton" parent="."]
+[node name="Menu" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 350.0
-offset_right = 560.0
-offset_bottom = 425.0
-texture_normal = SubResource("PlaceholderTexture2D_s508f")
+offset_left = 350.0
+offset_top = 375.0
+offset_right = 811.0
+offset_bottom = 623.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_wk6rn")
+texture_pressed = ExtResource("6_64ewi")
+texture_hover = ExtResource("6_64ewi")
 
-[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+[node name="Label" type="Label" parent="Menu"]
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
-mouse_filter = 2
-color = Color(0.64705884, 0.16470589, 0.16470589, 1)
-
-[node name="Label" type="Label" parent="MainMenu"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 75.0
+offset_left = 75.0
+offset_top = 12.5
+offset_right = 345.0
+offset_bottom = 152.5
+rotation = 0.2617994
 theme_override_colors/font_color = Color(0.9490196, 0.9529412, 0.95686275, 1)
 theme_override_fonts/font = ExtResource("2_ag6kh")
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 120
 text = "Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_main_menu_pressed"]

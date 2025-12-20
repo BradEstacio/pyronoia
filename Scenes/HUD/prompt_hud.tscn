@@ -158,7 +158,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_7n5wc")
 theme_override_font_sizes/font_size = 32
-text = "I don't need that right now"
+text = "I dont need that right now"
 horizontal_alignment = 1
 vertical_alignment = 1
 

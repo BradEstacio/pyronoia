@@ -18,7 +18,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fgkus")
 
-[node name="Label" type="Label" parent="."]
+[node name="UI" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
 layout_mode = 0
 offset_left = 25.0
 offset_right = 428.0
@@ -30,7 +36,7 @@ text = "Pyronoia"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Start" type="TextureButton" parent="."]
+[node name="Start" type="TextureButton" parent="UI"]
 layout_mode = 0
 offset_left = 650.0
 offset_top = 300.0
@@ -41,7 +47,7 @@ texture_normal = ExtResource("3_eo18w")
 texture_pressed = ExtResource("4_0575v")
 texture_hover = ExtResource("4_0575v")
 
-[node name="Label" type="Label" parent="Start"]
+[node name="Label" type="Label" parent="UI/Start"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,18 +64,18 @@ text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Credits" type="TextureButton" parent="."]
+[node name="Credits" type="TextureButton" parent="UI"]
 layout_mode = 0
 offset_left = 650.0
 offset_top = 400.0
-offset_right = 1654.0
-offset_bottom = 794.0
+offset_right = 1111.0
+offset_bottom = 648.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("5_sb3vm")
 texture_pressed = ExtResource("6_737wf")
 texture_hover = ExtResource("6_737wf")
 
-[node name="Label" type="Label" parent="Credits"]
+[node name="Label" type="Label" parent="UI/Credits"]
 layout_mode = 0
 offset_left = 125.0
 offset_top = 30.0
@@ -91,5 +97,5 @@ layout_mode = 1
 stream = ExtResource("4_ed76m")
 autoplay = true
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="UI/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="UI/Credits" to="." method="_on_credits_pressed"]

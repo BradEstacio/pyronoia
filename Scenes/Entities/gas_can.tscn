@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2jwgporrwtsm" path="res://Scripts/pickupable.gd" id="1_x8fji"]
 [ext_resource type="Texture2D" uid="uid://5ojwsgyak7bw" path="res://Assets/Sprites/gas_canister.png" id="2_hblcx"]
-[ext_resource type="AudioStream" uid="uid://dunytfy3voq5l" path="res://Assets/SFX/352118__inspectorj__dropping-wood-j.wav" id="5_k3ed1"]
+[ext_resource type="AudioStream" uid="uid://vuf3owvnvag1" path="res://Assets/SFX/655369__21100495__opening-gas-canister.wav" id="3_hblcx"]
 [ext_resource type="AudioStream" uid="uid://jnfbi78538af" path="res://Assets/SFX/352174__inspectorj__dropping-wood-m.wav" id="6_luyxx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8v6no"]
@@ -31,7 +31,9 @@ shape = SubResource("SphereShape3D_8v6no")
 
 [node name="PickUp" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-stream = ExtResource("5_k3ed1")
+stream = ExtResource("3_hblcx")
+volume_db = -10.0
+max_distance = 4096.0
 
 [node name="DropOffWood" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_luyxx")

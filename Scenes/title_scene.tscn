@@ -8,6 +8,7 @@
 [node name="TitleScene" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(0.96629536, -0.008941389, -0.2572808, -0.03200794, 0.987469, -0.15453336, 0.25543854, 0.1575599, 0.9539005, -0.13995361, -0.87454337, 4.1453853)
 fov = 85.0
 
@@ -23,12 +24,13 @@ light_color = Color(1, 0.5294118, 0.32941177, 1)
 light_energy = 16.0
 omni_range = 25.0
 
-[node name="Map2_Final" parent="." instance=ExtResource("1_phepx")]
+[node name="Map" parent="." instance=ExtResource("1_phepx")]
+unique_name_in_owner = true
 
-[node name="Cube_014" parent="Map2_Final" index="0"]
+[node name="Cube_014" parent="Map" index="0"]
 transform = Transform3D(12.54804, 1.7714096, 0.7040676, -3.8931265, 1.6479108, 12.190891, 5.3502307, -2.955423, 7.2195053, 404.76245, 441.33548, -659.27216)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map2_Final/Cube_014" index="0"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map/Cube_014" index="0"]
 transform = Transform3D(0.07044252, 0.0016744235, 0.0020902567, 0.001520127, 0.17694348, -0.19297169, -0.002646762, 0.051931176, 0.047596924, 0.36001492, -3.3281708, 1.9572954)
 light_energy = 0.35
 light_indirect_energy = 0.0
@@ -45,4 +47,4 @@ light_color = Color(1, 0.5294118, 0.32941177, 1)
 light_energy = 16.0
 omni_range = 25.0
 
-[editable path="Map2_Final"]
+[editable path="Map"]

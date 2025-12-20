@@ -16,6 +16,7 @@ pickup_distance = 3.0
 
 [node name="CapsuleMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_i3pqv")
 
 [node name="CapsuleCollider" type="CollisionShape3D" parent="."]
@@ -36,6 +37,7 @@ spot_angle = 50.0
 
 [node name="Hand" type="MeshInstance3D" parent="PlayerCamera"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.39313018, -0.3760916, -0.711337)
+visible = false
 cast_shadow = 0
 mesh = SubResource("SphereMesh_v0iea")
 skeleton = NodePath("ItemCarryPoint")

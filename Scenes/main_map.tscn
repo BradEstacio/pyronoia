@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://d18hirupye87j"]
+
+[ext_resource type="PackedScene" uid="uid://dk205vq50m8dh" path="res://Scenes/VFX/fire_vfx.tscn" id="1_1vevx"]
+[ext_resource type="Environment" uid="uid://dyjetdupli78k" path="res://Scenes/main_map_environment.tres" id="1_nfd1w"]
+[ext_resource type="Texture2D" uid="uid://cprgmq8ws6i50" path="res://Assets/Sprites/campfire lit.png" id="3_nfd1w"]
+[ext_resource type="PackedScene" uid="uid://dd3nwm25hka8f" path="res://Scenes/Entities/player.tscn" id="4_tvgjd"]
+[ext_resource type="PackedScene" uid="uid://b1vn76msbtx0g" path="res://Assets/Map3_Final.glb" id="5_nfd1w"]
+
+[node name="MainMap" type="Node3D"]
+
+[node name="FinalCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.96629536, -0.008941389, -0.2572808, -0.03200794, 0.987469, -0.15453336, 0.25543854, 0.1575599, 0.9539005, -0.13995361, -0.87454337, 4.1453853)
+visible = false
+fov = 85.0
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8847449, 0.37101313, -0.28209183, -0.30400297, 0.9181556, 0.25411126, 0.3532828, -0.13906687, 0.9251225, 225.71304, 282.7087, -353.93616)
+light_energy = 0.515
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.505
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_nfd1w")
+
+[node name="Player" parent="." instance=ExtResource("4_tvgjd")]
+transform = Transform3D(0.849526, 0, 0, 0, 0.849526, 0, 0, 0, 0.849526, 0.287879, -2.7557428, 3.2130296)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+
+[node name="PlayerCamera" parent="Player" index="2"]
+environment = ExtResource("1_nfd1w")
+current = true
+
+[node name="FireVFX" parent="." instance=ExtResource("1_1vevx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0176184, 0.4549203)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FireVFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3514099, 0.54969335, 0.49921703)
+light_color = Color(1, 0.5299923, 0.3122002, 1)
+light_energy = 16.0
+omni_range = 25.0
+
+[node name="Campfire" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.18121225, -1.2056632, 0.39218187)
+billboard = 2
+texture = ExtResource("3_nfd1w")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Campfire"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31858468, 2.0562248, 0.49921703)
+light_color = Color(0.9857678, 0.55356956, 0, 1)
+light_energy = 16.0
+omni_range = 25.0
+
+[node name="Map3_Final" parent="." instance=ExtResource("5_nfd1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013287544, -4.7683716e-07, -0.0038347244)
+
+[editable path="Player"]
+[editable path="Map3_Final"]

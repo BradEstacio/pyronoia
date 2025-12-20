@@ -173,8 +173,10 @@ func _process(_delta: float) -> void:
 			var node := get_looked_at_object(pickup_distance)
 			if node:
 				if "Fire Item" in node.get_groups():
-					campfire.get_fire_item()
-					node.queue_free()
+					var fire_item := node as Pickupable
+					if fire_item.active:
+						campfire.get_fire_item()
+						node.queue_free()
 				elif "Burnable" in node.get_groups():
 					# TO DO: Burn Object/ add fire effect; currently adds fire sprite
 					var burnable_item = node as Burnable

@@ -51,6 +51,8 @@ func get_look_position(max_distance := 100.0) -> Vector3:
 
 	var result := space.intersect_ray(query)
 	if result:
+		if result and held_item:
+			%PromptHUD.get_node("Drop").show()
 		return result.position
 	
 	return Vector3.ZERO
@@ -118,10 +120,17 @@ func get_looked_at_object(max_distance := 100.0) -> Node3D:
 		return null
 
 	if "Interactable" in collider.get_groups():
-		var col_sprite3d_child = collider.get_node("Sprite3D")
-		if col_sprite3d_child:
-			# outlines object when within visible range
-			%PromptHUD.get_node("PickupPanel").show()
+		if "Item" in collider.get_groups() and !held_item:
+			if collider.active:
+				%PromptHUD.get_node("Pickup").show()
+				if collider.get_node("OmniLight3D"):
+					collider.get_node("OmniLight3D").show()
+			else:
+				%PromptHUD.get_node("NotNeeded").show()
+		if "Campfire" in collider.get_groups() and held_item:
+			%PromptHUD.get_node("Kindling").show()
+		if "Burnable" in collider.get_groups() and collider.active:
+			%PromptHUD.get_node("Burn").show()
 		return collider
 	else:
 		return null
@@ -168,10 +177,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	# Handle picking up and dropping items
 	get_looked_at_object(pickup_distance)
+	var drop_pos = get_look_position(pickup_distance)
 	if Input.is_action_just_pressed("ui_interact"):
 		if not is_holding_item: # Pick up item
 			var node := get_looked_at_object(pickup_distance)
 			if node:
+				if node.get_node("OmniLight3D"):
+					node.get_node("OmniLight3D").hide()
 				if "Fire Item" in node.get_groups():
 					var fire_item := node as Pickupable
 					if fire_item.active:
@@ -204,18 +216,26 @@ func _process(_delta: float) -> void:
 					is_holding_item = false
 					held_item = null
 				else:
-					var drop_pos := get_look_position(pickup_distance)
 					if drop_pos != Vector3.ZERO:
 						held_item.drop_item(drop_pos)
 			else:
-				var drop_pos := get_look_position(pickup_distance)
 				if drop_pos != Vector3.ZERO:
 					held_item.drop_item(drop_pos)
 	
-	# Handle hover/outline shader
+	# Handle hover
 	var last_looked_at_object = looked_at_object
 	looked_at_object = get_looked_at_object(pickup_distance)
 	if last_looked_at_object and looked_at_object != last_looked_at_object:
-		var col_sprite3d_child = last_looked_at_object.get_node("Sprite3D")
-		if col_sprite3d_child:
-			%PromptHUD.get_node("PickupPanel").hide()
+		if last_looked_at_object.get_node("OmniLight3D"):
+				last_looked_at_object.get_node("OmniLight3D").hide()
+		for child in %PromptHUD.get_children():
+			if child.visible:
+				child.hide()
+	if !held_item || !drop_pos:
+		%PromptHUD.get_node("Drop").hide()
+		
+	if Input.is_action_just_pressed("ui_cancel"):
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

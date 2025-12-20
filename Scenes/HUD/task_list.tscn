@@ -13,39 +13,31 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(480, 270)
-scale = Vector2(0.5, 0.5)
+position = Vector2(540, 215)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_r025w")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 763.00006
-offset_top = -37.999996
-offset_right = 1057.2935
-offset_bottom = 105.99361
-rotation = 0.16734105
-color = Color(0.9490196, 0.9529412, 0.95686275, 1)
-
-[node name="Title" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 9.607178
-offset_top = 32.85881
-offset_right = 219.60718
-offset_bottom = 67.85881
+[node name="Title" type="Label" parent="Sprite2D"]
+offset_left = 695.0
+offset_top = -460.0
+offset_right = 905.0
+offset_bottom = -373.0
+rotation = 0.17453292
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_76h0m")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 60
 text = "TASKS:"
 
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 9.760368
-offset_top = 61.90959
-offset_right = 219.76038
-offset_bottom = 136.89735
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = 658.0
+offset_top = -402.0
+offset_right = 956.07324
+offset_bottom = -186.0
+rotation = 0.20943952
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -17
 theme_override_fonts/font = ExtResource("1_76h0m")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 60
 text = "- Collect wood
 - Keep fire lit at all costs"
 autowrap_mode = 2
